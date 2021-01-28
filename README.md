@@ -89,9 +89,8 @@ https://developers.themoviedb.org/3/getting-started/introduction
 ### Tech Stack
 
 **Design and Planning**
-* **Miro** - Wireframing.
-* **xtensio** - Personas.
-* **Framer** - Prototyping.
+* **Figma** - Wireframing.
+
 * **Lucid Chart**- Diagramming.
 
 **Tech**
@@ -103,20 +102,23 @@ https://developers.themoviedb.org/3/getting-started/introduction
 * **@reduxjs/toolkit** - Is the official, opinionated, batteries-included toolset for efficient Redux development, intended to be the standard way to write Redux logic. It includes utility functions and several Redux add ons.
 * **Redux-thunk 2.3.0** - This middleware allows you to write action creators that return a function instead of an action. The inner function receives the store methods dispatch and getState as parameters.
 * **Dotenv 8.2.0** -  This loads environment variables from a .env file into process.env.
-* **React Styled Components** -
+* **Lodash 4.17.20** - A Javascript utility library. Which includes a utility called throttle. Wrapping the redux save to store callback in a throttle ensures that the inner function that is passed in is not going to be called more often than the number of milliseconds that is specified.
+* **React-styled-components** -
 * **Material UI** - Is the most popular React framework, it enables using React components faster development or building a custom design.
 * **HTML5**  - A markup language used for structuring and presenting content.
 * **CSS3** - A style sheet language used for describing the presentation of a document
 * **Axios** - Is a promise-based HTTP client that supports an easy-to-use API and can be used in both the browser and Node. js.
-* **The Movie DB API** -
+* **The Movie DB API** - An API which has to service of fetching movie, TV and actor images and data.
 
 **Other**
-* **Heroku**  - Is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud supporting several programming languages. This was used as our server deployment service.
+* **Heroku**  - Is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud supporting several programming languages.
 * **GitHub** - Is a provider of Internet hosting for software development and version control using Git and it was my Version Control Host.
 
 
 -----
 ### Functionality/Features
+
+
 
 * Home page
 * Search for movies via keyword, language and year.
@@ -138,18 +140,21 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 ###### Mobile
 
+<div style="width:70%; margin: 0 auto;"><img src="./docs/wfmobile.png"/></div>
+
 ###### Tablet
 
+<div style="width:70%; margin: 0 auto;"><img src="./docs/wftablet.png"/></div>
+
+
 ###### Desktop
-
------
-
-### Prototypes
+<div style="width:70%; margin: 0 auto;"><img src="./docs/wfdesktop.png"/></div>
 
 
 -----
 
-### DFD
+
+### Data Flow Diagram
 
 
 <div style="width:70%; margin: 0 auto;"><img src="./docs/dfd.png"/></div>
