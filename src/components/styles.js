@@ -22,11 +22,11 @@ export const Background = styled.div `
 `
 
 export const HomeNav = styled.div `
-    background-image: linear-gradient(rgba(178, 73, 123,0.4), rgba(178, 73, 123,0.4)), url(${backgroundImage});
+    background-image: linear-gradient(rgba(146, 85, 158,0.7), rgba(178, 73, 123,0.7)), url(${backgroundImage});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 300px;
+    height: 250px;
 `
 
 
