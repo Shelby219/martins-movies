@@ -165,8 +165,12 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 ### Implementation Plan
 
-*
-*
+* Documentation
+* File Architecture Set up
+* Redux Set up
+* Component Base Code
+* 
+* Cypress or Enzyme Tests ?
 
 
 
