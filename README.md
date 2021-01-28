@@ -45,7 +45,6 @@ https://developers.themoviedb.org/3/getting-started/introduction
         * Keyword
         * language (English or Other)
         * year
-
     * I will be taken to the search page after typing a valid parameter and clicking search.
     I will be taken to a no results page after typing an invalid parameter and clicking search.
     * I can mark a movie as watched.
@@ -169,7 +168,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 * File Architecture Set up
 * Redux Set up
 * Component Base Code
-* 
+*
 * Cypress or Enzyme Tests ?
 
 
