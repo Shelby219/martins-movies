@@ -1,7 +1,7 @@
 import React from "react";
-import {ListNav, MovieContainer} from '../components/styles.js';
+import {ListNav, MovieContainer, BaseContainer} from '../components/styles.js';
 import MovieCard  from '../components/movieCard.js';
-
+import UnderNavHeader  from '../components/underNavheader.js';
 
 
 function MovieListings() {
@@ -135,13 +135,9 @@ function MovieListings() {
         }]
 
 
-
   return (
-        <div>
-                        <ListNav>
-                            <h2> Search Results for: </h2>
-                        </ListNav>
-
+        <BaseContainer>
+           <UnderNavHeader/>
                 <MovieContainer>
 
                             {testData.map((movie)=>
@@ -151,10 +147,7 @@ function MovieListings() {
                             }
 
                </MovieContainer>
-
-
-
-            </div>
+            </BaseContainer>
   );
 }
 

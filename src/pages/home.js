@@ -1,4 +1,5 @@
 import React from "react";
+
 import {HomePage, BaseContainer} from '../components/styles.js';
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -17,9 +18,7 @@ function Home() {
 
                 </div>
                 </HomePage>
-
-
-            </BaseContainer>
+          </BaseContainer>
 
 
 

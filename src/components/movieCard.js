@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { Link } from "react-router-dom";
 import {MovieCardStyle, ReadMoreButton} from '../components/styles.js';
 
 
@@ -31,19 +32,23 @@ function MovieCard({movie}) {
   return (
 
       <MovieCardStyle>
+        <Link to={"/#"} style={{ textDecoration: 'none' }} >
 
+                      <img alt="movie poster" src={`https://image.tmdb.org/t/p/original${poster_path}`} width="100%" />
 
-        <img alt="movie poster" src={`https://image.tmdb.org/t/p/original${poster_path}`} width="100%" />
+                      <h2>{title ? title : name}</h2>
+                      <div>
+                        <p><img src="https://img.icons8.com/fluent/48/000000/filled-star.png" width="15px" style={{marginRight: "5px" }}/>
+                        {vote_average} / 10</p>
+                        <p>{filterByReference(genresArray, genre_ids)}</p>
+                      </div>
+                      <div class="overview">{overview}</div>
 
-        <h2>{title ? title : name}</h2>
-        <div>
-          <p><img src="https://img.icons8.com/fluent/48/000000/filled-star.png" width="15px" style={{marginRight: "5px" }}/>
-          {vote_average} / 10</p>
-          <p>{filterByReference(genresArray, genre_ids)}</p>
-        </div>
-         <div class="overview">{overview}</div>
-         <ReadMoreButton>Read More</ReadMoreButton>
+     </Link>
 
+     <a to={"/#"} style={{ textDecoration: 'none' }} >
+            <ReadMoreButton>Read More</ReadMoreButton>
+     </a>
       </MovieCardStyle>
 
   );

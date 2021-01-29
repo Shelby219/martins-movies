@@ -42,18 +42,20 @@ export const MovieContainer = styled.div `
 
 //Individual movie card style
 export const MovieCardStyle = styled.div `
+
     width: 275px;
     background-color: white;
     border-radius: 5px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     margin: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     @media only screen and (min-width: 600px) {
     width: 320px;
     }
     h2 {
     padding: 0px 25px 0px 25px;
-    height: 60px;
+    height: 45px;
+    color: black;
     }
     div{
      padding: 0px 25px 0px 25px;
@@ -63,14 +65,17 @@ export const MovieCardStyle = styled.div `
      flex-direction: row;
      justify-content: space-between;
     }
+
     .overview{
        height: 90px !important;
        overflow: scroll;
      }
     p:nth-child(1){
     min-width: 80px;
+    height: 45px;
     }
     p:nth-child(2){
+    height: 45px;
     text-align: right;
     padding: 0px 0px 0px 0px;
     }
@@ -83,7 +88,7 @@ export const MovieCardStyle = styled.div `
 `
 //Button for Read more- linking to IMDB
 export const ReadMoreButton = styled.button `
-    all: unset;
+     all: unset;
      background-color: #9352b3;
      color: white;
      border-radius: 5px;
@@ -92,6 +97,7 @@ export const ReadMoreButton = styled.button `
      padding: 8px;
      font-weight: 600;
      font-size: 1em;
+     cursor: pointer;
 `
 
 //Martins Movies Logo
@@ -178,10 +184,17 @@ export const ListNav = styled.div `
     background-repeat: no-repeat;
     background-position: center;
     height: 250px;
-    h2{
-      font-size: 2em;
+    h1{
+      color: white;
+      font-size: 1.5em;
       padding: 20px;
+      font-weight: 500;
       padding-top: 100px;
+      margin: 30px;
+      @media only screen and (min-width: 600px) {
+        margin: 40px;
+        font-size: 2.4em;
+        }
     }
 `
 
