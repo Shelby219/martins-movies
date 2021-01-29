@@ -1,17 +1,25 @@
 import React from "react";
-import {HomePage} from '../components/styles.js';
-
+import {HomePage, BaseContainer} from '../components/styles.js';
+import SearchIcon from '@material-ui/icons/Search';
 
 function Home() {
   return (
 
-        <div>
+        <BaseContainer>
                 <HomePage>
-                <h2> Home </h2>
+                <h1> SEARCH FOR A MOVIE! </h1>
+                <div>
+                <input  class="searchInput"
+                type="text"
+                placeholder="Enter a Movie, year or language.."
+                />
+                <button class="searchButton"><SearchIcon  /></button>
+
+                </div>
                 </HomePage>
 
 
-            </div>
+            </BaseContainer>
 
 
 

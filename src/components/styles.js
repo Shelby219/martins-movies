@@ -14,7 +14,7 @@ function randomHomeImgs () {
   return  randomHomeImg
 }
 
-
+//Body of the App
 export const Body = styled.div `
     margin: 0;
     font-family: 'Quicksand',
@@ -24,12 +24,14 @@ export const Body = styled.div `
     box-sizing: border-box;
 
 `
-
+//Base flex container for pages
 export const BaseContainer = styled.div `
-
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
 `
-
+//Container for all the movie posters
 export const MovieContainer = styled.div `
     display: flex;
     justify-content: center;
@@ -38,6 +40,7 @@ export const MovieContainer = styled.div `
     margin-top: 45px;
 `
 
+//Individual movie card style
 export const MovieCardStyle = styled.div `
     width: 275px;
     background-color: white;
@@ -78,6 +81,7 @@ export const MovieCardStyle = styled.div `
 
 
 `
+//Button for Read more- linking to IMDB
 export const ReadMoreButton = styled.button `
     all: unset;
      background-color: #9352b3;
@@ -90,7 +94,7 @@ export const ReadMoreButton = styled.button `
      font-size: 1em;
 `
 
-
+//Martins Movies Logo
 export const Logo = styled.div `
   font-family: 'Quicksand', sans-serif;
   color: #000000;
@@ -108,23 +112,66 @@ export const Logo = styled.div `
   }
 
 `
-
+//Under navigation
 export const Background = styled.div `
     background-color: #E4E4E4;
     height: 100vh;
 `
 
 
-
+//Home page basis
 export const HomePage = styled.div `
     background-image: url(${randomHomeImgs()});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    h1{
+      text-align: center;
+      color: white;
+      font-weight: 800;
+      font-size: 3em;
+      padding: 0px 30px 0px 30px;
+      text-shadow: 1px 1px 2px rgba(0,0,0, 0.25);
+    }
+    div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .searchInput{
+      all: unset;
+      border-radius: 5px 0px 0px  5px;
+      background-color: white;
+      color: #a098a4;
+      align-self: center;
+      height: 25px;
+      padding: 15px;
+      width: 255px;
+          @media only screen and (min-width: 600px) {
+          width: 700px;
+        }
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+     .searchButton{
+        all: unset;
+        height: 25px;
+        background-color: #9352b3;
+        color: white;
+        border-radius: 0px 5px 5px 0px;
+        text-transform: uppercase;
+        padding: 15px;
+        font-weight: 600;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      }
+    }
 `
 
-
+//Under Navigation Background image
 export const ListNav = styled.div `
     background-image: linear-gradient(rgba(146, 85, 158,0.7), rgba(178, 73, 123,0.7)), url(${backgroundImage});
     background-size: cover;
