@@ -21,6 +21,7 @@ function App() {
         <Switch>
          <Route  exact  path="/"  component={Home} />
          <Route  exact  path="/listings"  component={MovieListings} />
+         <Route  exact  path="/all-movies"  component={MovieListings} />
          <Route component={NotFound} />
         </Switch>
        </BrowserRouter>

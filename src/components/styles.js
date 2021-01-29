@@ -1,6 +1,18 @@
 import styled from "styled-components"
 import backgroundImage from '../imgs/movie-collection.jpg';
 import homeImage from '../imgs/slider3.jpg';
+import homeImage1 from '../imgs/slider2.jpg';
+import homeImage2 from '../imgs/slider1.jpg';
+
+
+//Random alternating the home image
+const listHomeImg = [homeImage, homeImage1, homeImage2]
+
+function randomHomeImgs () {
+  let randomHomeImg =
+    listHomeImg[Math.floor(Math.random() * listHomeImg.length)];
+  return  randomHomeImg
+}
 
 
 export const Body = styled.body `
@@ -35,12 +47,14 @@ export const Background = styled.div `
     height: 100vh;
 `
 
+
+
 export const HomePage = styled.div `
-    background-image: url(${homeImage});
+    background-image: url(${randomHomeImgs()});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    
+    height: 100vh;
 `
 
 
