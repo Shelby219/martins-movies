@@ -15,14 +15,81 @@ function randomHomeImgs () {
 }
 
 
-export const Body = styled.body `
+export const Body = styled.div `
     margin: 0;
     font-family: 'Quicksand',
         sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
 
 `
+
+export const BaseContainer = styled.div `
+
+
+`
+
+export const MovieContainer = styled.div `
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 45px;
+`
+
+export const MovieCardStyle = styled.div `
+    width: 275px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    margin: 20px;
+    padding-bottom: 20px;
+    @media only screen and (min-width: 600px) {
+    width: 320px;
+    }
+    h2 {
+    padding: 0px 25px 0px 25px;
+    height: 60px;
+    }
+    div{
+     padding: 0px 25px 0px 25px;
+     color: #a098a4;
+     font-size: 0.9em;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+    }
+    .overview{
+       height: 90px !important;
+       overflow: scroll;
+     }
+    p:nth-child(1){
+    min-width: 80px;
+    }
+    p:nth-child(2){
+    text-align: right;
+    padding: 0px 0px 0px 0px;
+    }
+
+    img {
+      border-radius: 5px 5px 0px  0px;
+    }
+
+
+`
+export const ReadMoreButton = styled.button `
+    all: unset;
+     background-color: #9352b3;
+     color: white;
+     border-radius: 5px;
+     text-transform: uppercase;
+     margin: 20px 25px 0px 25px;
+     padding: 8px;
+     font-weight: 600;
+     font-size: 1em;
+`
+
 
 export const Logo = styled.div `
   font-family: 'Quicksand', sans-serif;

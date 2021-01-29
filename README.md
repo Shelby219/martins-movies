@@ -196,6 +196,8 @@ https://developers.themoviedb.org/3/getting-started/introduction
     * Continued researching the movie API, and tested endpoints via postman.
     *
 
+    * Discovered that some movies have titles and some have names, so if the search returns name then that will be used in rendering the movie. 
+
 
 -----
 

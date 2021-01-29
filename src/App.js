@@ -15,16 +15,18 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 function App() {
   return (
      <Body >
-      <CssBaseline />
-       <BrowserRouter>
-       <Nav />
-        <Switch>
-         <Route  exact  path="/"  component={Home} />
-         <Route  exact  path="/listings"  component={MovieListings} />
-         <Route  exact  path="/all-movies"  component={MovieListings} />
-         <Route component={NotFound} />
-        </Switch>
-       </BrowserRouter>
+
+          <CssBaseline />
+          <BrowserRouter>
+          <Nav />
+            <Switch>
+            <Route  exact  path="/"  component={Home} />
+            <Route  exact  path="/listings"  component={MovieListings} />
+            <Route  exact  path="/all-movies"  component={MovieListings} />
+            <Route component={NotFound} />
+            </Switch>
+          </BrowserRouter>
+    
       </Body>
   );
 }
