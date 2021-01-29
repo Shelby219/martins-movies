@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
-import {MovieCardStyle, ReadMoreButton} from '../components/styles.js';
+import {MovieCardStyle, ReadMoreButton, Watched} from '../components/styles.js';
+
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 
 import genresArray from "../data/genres.json";
@@ -46,10 +49,22 @@ function MovieCard({movie}) {
 
      </Link>
 
-     <a to={"/#"} style={{ textDecoration: 'none' }} >
-            <ReadMoreButton>Read More</ReadMoreButton>
-     </a>
-      </MovieCardStyle>
+     <div class="buttonGroup" >
+         <a to={"/#"} style={{ textDecoration: 'none' }} >
+              <ReadMoreButton>Read More</ReadMoreButton>
+          </a>
+            <Watched>
+            <input
+                  name="isWatched"
+                  type="checkbox"
+                  checked={false}
+                  />
+            <span>Unwatched</span>
+          </Watched>
+     </div>
+
+
+   </MovieCardStyle>
 
   );
 }

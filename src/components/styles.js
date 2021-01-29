@@ -83,7 +83,13 @@ export const MovieCardStyle = styled.div `
     img {
       border-radius: 5px 5px 0px  0px;
     }
-
+    .buttonGroup{
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+      margin: 20px 0px 0px 0px;
+    }
 
 `
 //Button for Read more- linking to IMDB
@@ -93,11 +99,33 @@ export const ReadMoreButton = styled.button `
      color: white;
      border-radius: 5px;
      text-transform: uppercase;
-     margin: 20px 25px 0px 25px;
      padding: 8px;
      font-weight: 600;
      font-size: 1em;
+     width: 80px;
      cursor: pointer;
+     text-align: center;
+`
+
+//Button for marked as watched
+export const Watched = styled.div `
+     padding: 15px;
+     align-self: center;
+     color: black !important;
+     font-weight: 400;
+     margin-left: 3px;
+     @media only screen and (min-width: 600px) {
+       margin-left: 25px;
+    }
+     input{
+        margin-right: 10px;
+        cursor: pointer;
+     }
+     span{
+
+     text-align: right;
+     padding-top: 2px;
+     }
 `
 
 //Martins Movies Logo
