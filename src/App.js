@@ -1,5 +1,5 @@
 
-import './App.css';
+import {Body} from './components/styles.js';
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 //pages
@@ -14,7 +14,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 function App() {
   return (
-    <div >
+     <Body >
       <CssBaseline />
        <BrowserRouter>
        <Nav />
@@ -24,7 +24,7 @@ function App() {
          <Route component={NotFound} />
         </Switch>
        </BrowserRouter>
-      </div>
+      </Body>
   );
 }
 

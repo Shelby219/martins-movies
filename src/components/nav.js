@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import MenuIcon from "@material-ui/icons/Menu";
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -41,31 +42,59 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#fcfcfc",
     color: "#000000",
     boxShadow: "none",
-    paddingRight: "79px",
-    paddingLeft: "118px",
     "@media (max-width: 900px)": {
       paddingLeft: 0,
     },
   },
   menuButton: {
     fontFamily: "Quicksand, sans-serif",
-    fontWeight: 700,
-    size: "18px",
+    color: "#535353",
+    textTransform: "capitalize",
+    fontWeight: 400,
+    size: "25px",
     marginLeft: "38px",
+  },
+  menuDraws: {
+    fontFamily: "Quicksand, sans-serif",
+    color: "white",
+    width: "100%",
+    borderBottom: "0.5px solid #535353",
+    fontWeight: 300,
+    height: "50px",
   },
   toolbar: {
     display: "flex",
     justifyContent: "space-between",
-  fontFamily: "Quicksand, sans-serif",
+    fontFamily: "Quicksand, sans-serif",
+  },
+  mobiletoolbar: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-end",
+  },
+  toolMenu: {
+    marginLeft: "auto",
   },
   drawerContainer: {
+    backgroundColor: "#2a2a2a",
     fontFamily: "Quicksand, sans-serif",
-    padding: "20px 30px",
+    paddingTop: "20px",
+    height: "100%",
+    width: "400px",
+    "@media (max-width: 600px)": {
+       width: "250px",
+    },
   },
 }));
 
 function Nav() {
-    const { header, logo, menuButton, toolbar, drawerContainer } = useStyles();
+    const { header,
+    menuButton,
+    toolbar,
+    drawerContainer,
+    menuDraws,
+    toolMenu ,
+    mobiletoolbar} = useStyles();
 
     const [state, setState] = useState({
       mobileView: false,
@@ -104,8 +133,25 @@ function Nav() {
           setState((prevState) => ({ ...prevState, drawerOpen: false }));
 
         return (
-          <Toolbar>
+          <Toolbar className={mobiletoolbar} >
+
+
+            <Drawer
+              {...{
+                anchor: "right",
+                open: drawerOpen,
+                onClose: handleDrawerClose,
+              }}
+            >
+              <div className={drawerContainer}>
+                <h3 style={{padding: "0px 20px 0px 20px", textAlign: "center", color: "white" }}>MENU</h3>
+                {getDrawerChoices()}
+              </div>
+            </Drawer>
+
+            <div>{mmLogo}</div>
             <IconButton
+             className={toolMenu}
               {...{
                 edge: "start",
                 color: "inherit",
@@ -116,18 +162,6 @@ function Nav() {
             >
               <MenuIcon />
             </IconButton>
-
-            <Drawer
-              {...{
-                anchor: "left",
-                open: drawerOpen,
-                onClose: handleDrawerClose,
-              }}
-            >
-              <div className={drawerContainer}>{getDrawerChoices()}</div>
-            </Drawer>
-
-            <div>{mmLogo}</div>
           </Toolbar>
         );
       };
@@ -136,6 +170,7 @@ function Nav() {
       const getDrawerChoices = () => {
         return headersData.map(({ label, href }) => {
           return (
+
             <Link
               {...{
                 component: RouterLink,
@@ -145,7 +180,8 @@ function Nav() {
                 key: label,
               }}
             >
-              <MenuItem>{label}</MenuItem>
+              <MenuItem
+              className={menuDraws} >{label} <ArrowForwardIosIcon  style={{marginLeft: "auto" }} /> </MenuItem>
             </Link>
           );
         });
