@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import backgroundImage from '../imgs/movie-collection.jpg';
+import homeImage from '../imgs/slider3.jpg';
 
 
 export const Body = styled.body `
@@ -10,8 +11,6 @@ export const Body = styled.body `
     -moz-osx-font-smoothing: grayscale;
 
 `
-
-
 
 export const Logo = styled.div `
   font-family: 'Quicksand', sans-serif;
@@ -35,6 +34,15 @@ export const Background = styled.div `
     background-color: #E4E4E4;
     height: 100vh;
 `
+
+export const HomePage = styled.div `
+    background-image: url(${homeImage});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+`
+
 
 export const ListNav = styled.div `
     background-image: linear-gradient(rgba(146, 85, 158,0.7), rgba(178, 73, 123,0.7)), url(${backgroundImage});

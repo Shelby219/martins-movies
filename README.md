@@ -118,7 +118,6 @@ https://developers.themoviedb.org/3/getting-started/introduction
 ### Functionality/Features
 
 
-
 * Home page
 * Search for movies via keyword, language and year.
 * View movie data via results page.
@@ -171,6 +170,31 @@ https://developers.themoviedb.org/3/getting-started/introduction
 *
 * Cypress or Enzyme Tests ?
 
+
+-----
+
+### Development Log
+
+* **28th January 2020**
+    * Received Client Brief and review client requirements. Along with reviewing the design requirements.
+    * Researched and reviewing the movie API, begun some simple test points with Postman.
+    * Begun documentation.
+        * User Stories.
+        * Target Audience.
+        * Tech stack and library information.
+        * Functionality and features.
+        * Data flow Diagram.
+    * Once documentation was at a good starting point, I began coding.
+    * Initialized create-react-app.
+    * Set up the file architecture.
+    * Set up the page and components function frameworks.
+    * Began creating the base for the nav bar.
+    * Add some test data for the movie listings page.
+
+* **29th January 2020*
+    * Received notes that design is to match the basis site, so I began reviewing the nav bar and adjusting the styling and set up accordingly.
+    * Continued researching the movie API, and tested endpoints via postman.
+    *
 
 
 -----
