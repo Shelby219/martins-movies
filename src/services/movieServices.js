@@ -15,7 +15,7 @@ let randomPage = Math.floor(Math.random() * 500);
 
 export async function searchMoviesByKeyword(keyword) {
   // call to server to register user
-  const response = await api.get(`search/movie?api_key=${apiKey}&en-US&query=${keyword}&page=1&include_adult=false&page=${randomPage}`)
+  const response = await api.get(`search/movie?api_key=${apiKey}&en-US&query=${keyword}&page=1&include_adult=false&page=${1}`)
   return response.data;
 }
 

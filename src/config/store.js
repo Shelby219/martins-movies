@@ -21,14 +21,17 @@ function saveToLocalStorage(state) {
 // invalid output must be undefined
 function loadFromLocalStorage() {
   try {
+
     const serialisedState = localStorage.getItem("persistantState");
+    console.log("local storage loaded", JSON.parse(serialisedState))
     if (serialisedState === null) return undefined;
-    console.log("local storage loaded")
     return JSON.parse(serialisedState);
+
   } catch (e) {
     console.warn(e);
     return undefined;
   }
+
 }
 
 // create our store from our rootReducers and use loadFromLocalStorage

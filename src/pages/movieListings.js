@@ -5,7 +5,7 @@ import MovieCard  from '../components/movieCard.js';
 import UnderNavHeader  from '../components/underNavheader.js';
 
 
-function MovieListings() {
+function MovieListings({listOfMovies}) {
    let testData = [{
             "adult": false,
             "backdrop_path": "/7LZ0K4FsALrt7OeNIGOVLNuKQRU.jpg",
@@ -134,14 +134,14 @@ function MovieListings() {
             "vote_average": 7.1,
             "vote_count": 931
         }]
-
+   console.log("check movies",listOfMovies)
 
   return (
         <BaseContainer>
            <UnderNavHeader/>
                 <MovieContainer>
 
-                            {testData.map((movie)=>
+                            {listOfMovies.map((movie)=>
 
                                 <MovieCard key={movie.id} movie={movie}/>
                             )
@@ -154,8 +154,10 @@ function MovieListings() {
 
 
 const mapStateToProps = (state) => ({
-  listOfMovies: state.martinsMovies,
+  listOfMovies: state.movies.movieData,
+  listOfWatchedMovies: state.movies.watchedMovies,
 });
+
 
 const mapDispatchToProps = (dispatch) => ({
   actions: {

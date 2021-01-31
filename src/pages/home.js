@@ -24,9 +24,7 @@ function Home({actions}) {
           .catch((error) => {
             console.log("Error", error)
           })
-
     }
-
 
    useEffect(() => {
 
