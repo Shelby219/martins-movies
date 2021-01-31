@@ -182,7 +182,7 @@ export const HomePage = styled.div `
       align-items: center;
       margin-top: 20px;
     }
-    .searchInput{
+    .searchInputClass{
       all: unset;
       border-radius: 5px 0px 0px  5px;
       background-color: white;
