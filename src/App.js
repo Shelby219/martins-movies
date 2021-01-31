@@ -14,8 +14,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 function App() {
   return (
-     <Body >
-
+     <Body>
           <CssBaseline />
           <BrowserRouter>
           <Nav />
@@ -26,7 +25,7 @@ function App() {
             <Route component={NotFound} />
             </Switch>
           </BrowserRouter>
-    
+
       </Body>
   );
 }

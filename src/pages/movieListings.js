@@ -1,5 +1,6 @@
 import React from "react";
-import {ListNav, MovieContainer, BaseContainer} from '../components/styles.js';
+import { connect } from "react-redux";
+import {MovieContainer, BaseContainer} from '../components/styles.js';
 import MovieCard  from '../components/movieCard.js';
 import UnderNavHeader  from '../components/underNavheader.js';
 
@@ -151,6 +152,18 @@ function MovieListings() {
   );
 }
 
-export default MovieListings;
 
+const mapStateToProps = (state) => ({
+  listOfMovies: state.martinsMovies,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  actions: {
+    getMoviesDisplay: (movies) => {
+      dispatch({ type: "getMovies", payload: movies });
+    },
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieListings);
 

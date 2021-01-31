@@ -201,7 +201,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
     * Continued researching the movie API, and tested endpoints via postman.
     * Discovered that some movies have titles and some have names, so if the search returns name then that will be used in rendering the movie.
     * Created a function which filters the movies genre code from the DB and returns the correct genre from a JSON file which houses the codes and names.
-    * Implemented Material UI. 
+    * Implemented Material UI.
     * Created the framework styling and layout for home page with search bar and movie listings page with movie cards.
 
     * **Blockers**:
@@ -210,14 +210,15 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 <br>
 
-* **30th January 2020**
+* **31st January 2020**
     * Redux storage for movies implemented.
     * Redux storage for watched movies implemented.
     * Local storage for saving watched movies implemented.
     * Local storage for movie searched implemented.
-    *
+    * Update search bar- by searching with 3 inputs, keywords, language and year, with validation on all 3.
     * **Blockers**:
-        * abc
+        * Determining how to store "watched or unwatched for each movie" whilst using API calls to get the movies via search, being able to store a watched reference. This was overcome by using Redux storage to store a array of MOVIES_WATCHED just storing the movies ID and a watched boolean. Then when displaying the movies returned from the Axios call, using a function to check if the movie is watched in storage before displaying.
+        * Environment Variable Issues. Created a customer APIKEY enviroment variable for development, had some issues due to the 'create-react-app' configuration which requires all .env variables to start with "REACT_APP_". 
 
 -----
 
