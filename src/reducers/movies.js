@@ -25,7 +25,7 @@ const martinsMovies = createReducer(initialState, (builder) => {
             }
      })
      .addCase(deleteWatchedMovies, (state, action) => {
-       return state.watchedMovies.filter(movie => movie.id !== action.payload.id);
+       return state.watchedMovies.filter(movie => movie.movieId !== action.payload.id);
      })
 
 });
