@@ -191,13 +191,33 @@ https://developers.themoviedb.org/3/getting-started/introduction
     * Began creating the base for the nav bar.
     * Add some test data for the movie listings page.
 
-* **29th January 2020*
+    * **Blockers**
+        * Determining if design brief had to be exact, or inspired.
+
+<br>
+
+* **29th January 2020**
     * Received notes that design is to match the basis site, so I began reviewing the nav bar and adjusting the styling and set up accordingly.
     * Continued researching the movie API, and tested endpoints via postman.
+    * Discovered that some movies have titles and some have names, so if the search returns name then that will be used in rendering the movie.
+    * Created a function which filters the movies genre code from the DB and returns the correct genre from a JSON file which houses the codes and names.
+    * Implemented Material UI. 
+    * Created the framework styling and layout for home page with search bar and movie listings page with movie cards.
+
+    * **Blockers**:
+        * Determining if Material UI Grid was suitable or CSS flexbox.
+
+
+<br>
+
+* **30th January 2020**
+    * Redux storage for movies implemented.
+    * Redux storage for watched movies implemented.
+    * Local storage for saving watched movies implemented.
+    * Local storage for movie searched implemented.
     *
-
-    * Discovered that some movies have titles and some have names, so if the search returns name then that will be used in rendering the movie. 
-
+    * **Blockers**:
+        * abc
 
 -----
 

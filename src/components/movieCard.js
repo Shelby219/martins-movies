@@ -1,9 +1,7 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import {MovieCardStyle, ReadMoreButton, Watched} from '../components/styles.js';
 
-import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 
 import genresArray from "../data/genres.json";
@@ -13,6 +11,8 @@ function MovieCard({movie}) {
    const {id, title, name, poster_path, vote_average, genre_ids, overview} = movie
 
 
+
+  //Filtering the genres by ID from DB to return from JSON
    const filterByReference = (arr1, arr2) => {
         let res = [];
         res = arr1.filter(el => {
@@ -36,12 +36,12 @@ function MovieCard({movie}) {
 
       <MovieCardStyle>
         <Link to={"/#"} style={{ textDecoration: 'none' }} >
-
+                       {id}
                       <img alt="movie poster" src={`https://image.tmdb.org/t/p/original${poster_path}`} width="100%" />
 
                       <h2>{title ? title : name}</h2>
                       <div>
-                        <p><img src="https://img.icons8.com/fluent/48/000000/filled-star.png" width="15px" style={{marginRight: "5px" }}/>
+                        <p><img alt="star rating" src="https://img.icons8.com/fluent/48/000000/filled-star.png" width="15px" style={{marginRight: "5px" }}/>
                         {vote_average} / 10</p>
                         <p>{filterByReference(genresArray, genre_ids)}</p>
                       </div>

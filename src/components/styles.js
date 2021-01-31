@@ -53,14 +53,19 @@ export const MovieCardStyle = styled.div `
     width: 320px;
     }
     h2 {
-    padding: 0px 25px 0px 25px;
+    padding: 0px 20px 0px 25px;
     height: 45px;
-    color: black;
+    color: #3e4555;
+    font-size: 1.5em;
+
+        @media only screen and (min-width: 600px) {
+      font-size: 1.8em;
+        }
     }
     div{
      padding: 0px 25px 0px 25px;
      color: #a098a4;
-     font-size: 0.9em;
+     font-size: 1em;
      display: flex;
      flex-direction: row;
      justify-content: space-between;
@@ -101,7 +106,7 @@ export const ReadMoreButton = styled.button `
      text-transform: uppercase;
      padding: 8px;
      font-weight: 600;
-     font-size: 1em;
+     font-size: 0.9em;
      width: 80px;
      cursor: pointer;
      text-align: center;
@@ -201,6 +206,7 @@ export const HomePage = styled.div `
         padding: 15px;
         font-weight: 600;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        cursor: pointer;
       }
     }
 `

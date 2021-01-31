@@ -41,7 +41,7 @@ const useStyles = makeStyles(() => ({
     fontFamily: "Quicksand, sans-serif",
     backgroundColor: "#fcfcfc",
     color: "#000000",
-    boxShadow: "none",
+    boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
     "@media (max-width: 900px)": {
       paddingLeft: 0,
     },
