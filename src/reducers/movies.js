@@ -10,6 +10,8 @@ const martinsMovies = createReducer(initialState, (builder) => {
   builder
     .addCase(getMovies, (state, action) => {
       state.movieData = action.payload;
+      console.log("movie state changed")
+      console.log(action.payload)
     })
     .addCase(addTooWatchedMovies, (state, action) => {
        // state.movieData = action.payload;

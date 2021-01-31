@@ -11,6 +11,7 @@ function saveToLocalStorage(state) {
   try {
     const serialisedState = JSON.stringify(state);
     localStorage.setItem("persistantState", serialisedState);
+    console.log("local storage change")
   } catch (e) {
     console.warn(e);
   }
@@ -22,6 +23,7 @@ function loadFromLocalStorage() {
   try {
     const serialisedState = localStorage.getItem("persistantState");
     if (serialisedState === null) return undefined;
+    console.log("local storage loaded")
     return JSON.parse(serialisedState);
   } catch (e) {
     console.warn(e);

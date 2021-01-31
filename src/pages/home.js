@@ -2,29 +2,28 @@ import React,{useEffect, useState} from "react";
 import { connect } from "react-redux";
 import {HomePage, BaseContainer} from '../components/styles.js';
 import SearchBar from '../components/searchBar.js';
-import LanguageList from '../components/languageList.js';
 
-//import {searchMoviesByKeyword} from '../services/movieServices.js';
 
-function Home() {
-   const [input, setInput] = useState('');
+import {searchMoviesByKeyword} from '../services/movieServices.js';
+
+function Home({actions}) {
    const [searchInput, setSearchInput] = useState("")
 
 
-   function getSearchInput (e){
-      setSearchInput(e)
+   function getSearchInput (event){
+      setSearchInput(event)
       //console.log(searchInput)
    }
 
-   function searchMovies (){
-     console.log(searchInput)
-    //  searchMoviesByKeyword(searchInput)
-      //  .then((res) => {
-      //      console.log("Success", res)
-      //     })
-      //     .catch((error) => {
-      //       console.log("Error", error.response)
-      //     })
+   async function  searchMovies (){
+      await searchMoviesByKeyword(searchInput)
+       .then((res) => {
+           console.log("Success", res.results)
+           actions.getMoviesDisplay(res.results)
+          })
+          .catch((error) => {
+            console.log("Error", error)
+          })
 
     }
 

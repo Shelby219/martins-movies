@@ -216,9 +216,11 @@ https://developers.themoviedb.org/3/getting-started/introduction
     * Local storage for saving watched movies implemented.
     * Local storage for movie searched implemented.
     * Update search bar- by searching with 3 inputs, keywords, language and year, with validation on all 3.
+    * Restructure search bar to be seperate components and added on change and handle submit for search.
+    * Added autocomplete components for language options, using JSON file from the API, not sure if implementing yet.
     * **Blockers**:
         * Determining how to store "watched or unwatched for each movie" whilst using API calls to get the movies via search, being able to store a watched reference. This was overcome by using Redux storage to store a array of MOVIES_WATCHED just storing the movies ID and a watched boolean. Then when displaying the movies returned from the Axios call, using a function to check if the movie is watched in storage before displaying.
-        * Environment Variable Issues. Created a customer APIKEY enviroment variable for development, had some issues due to the 'create-react-app' configuration which requires all .env variables to start with "REACT_APP_". 
+        * Environment Variable Issues. Created a customer APIKEY enviroment variable for development, had some issues due to the 'create-react-app' configuration which requires all .env variables to start with "REACT_APP_".
 
 -----
 

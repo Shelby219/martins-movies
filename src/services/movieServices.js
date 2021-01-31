@@ -9,7 +9,7 @@ if (process.env.NODE_ENV !== "production") {
 const apiKey = process.env.REACT_APP_APIKEY
 
 
-let randomPage = Math.floor(Math.random() * 1000);
+let randomPage = Math.floor(Math.random() * 500);
 
 
 
