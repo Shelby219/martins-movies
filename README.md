@@ -175,7 +175,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 ### Development Log
 
-* **28th January 2020**
+* **28th January 2021**
     * Received Client Brief and review client requirements. Along with reviewing the design requirements.
     * Researched and reviewing the movie API, begun some simple test points with Postman.
     * Begun documentation.
@@ -196,7 +196,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 <br>
 
-* **29th January 2020**
+* **29th January 2021**
     * Received notes that design is to match the basis site, so I began reviewing the nav bar and adjusting the styling and set up accordingly.
     * Continued researching the movie API, and tested endpoints via postman.
     * Discovered that some movies have titles and some have names, so if the search returns name then that will be used in rendering the movie.
@@ -210,7 +210,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 <br>
 
-* **31st January 2020**
+* **31st January 2021**
     * Redux storage for movies implemented.
     * Redux storage for watched movies implemented.
     * Local storage for saving watched movies implemented.
@@ -222,6 +222,8 @@ https://developers.themoviedb.org/3/getting-started/introduction
         * Determining how to store "watched or unwatched for each movie" whilst using API calls to get the movies via search, being able to store a watched reference. This was overcome by using Redux storage to store a array of MOVIES_WATCHED just storing the movies ID and a watched boolean. Then when displaying the movies returned from the Axios call, using a function to check if the movie is watched in storage before displaying.
         * Environment Variable Issues. Created a customer APIKEY enviroment variable for development, had some issues due to the 'create-react-app' configuration which requires all .env variables to start with "REACT_APP_".
 
+* **1st February 2021**
+    * Query parameters for the search results page input.
 -----
 
 ### Getting Started with Create React App

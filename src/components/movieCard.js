@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 
 import {MovieCardStyle, ReadMoreButton, Watched} from '../components/styles.js';
@@ -9,6 +9,7 @@ import genresArray from "../data/genres.json";
 
 function MovieCard({movie}) {
    //const [genreState, setGenreState] = useState("")
+   const [checked, setChecked] = useState(false)
    const {id, title, name, poster_path, vote_average, genre_ids, overview} = movie
 
 
@@ -29,7 +30,13 @@ function MovieCard({movie}) {
         return displayGens.join(',  ');
         //setGenreState(displayGens)
     }
-
+    function handleChecker (){
+      if (checked === true){
+          setChecked(false)
+      } else {
+         setChecked(true)
+      }
+    }
 
    //console.log(filterByReference(genresArray, genre_ids));
 
@@ -63,8 +70,8 @@ function MovieCard({movie}) {
             <input
                   name="isWatched"
                   type="checkbox"
-                  checked={false}
-                  onChange={console.log("changed")}
+                  checked={checked}
+                  onChange={handleChecker}
                   />
             <span>Unwatched</span>
           </Watched>
