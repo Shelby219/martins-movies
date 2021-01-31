@@ -1,10 +1,13 @@
 import React from "react";
+import {MovieContainer, BaseContainer} from '../components/styles.js';
+
+
 
 function NotFound() {
   return (
-    <div>
+    <BaseContainer>
       404
-    </div>
+    </BaseContainer>
   );
 }
 

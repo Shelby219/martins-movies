@@ -161,9 +161,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   actions: {
-    getMoviesDisplay: (movies) => {
+   getMoviesDisplay: (movies) => {
       dispatch({ type: "getMovies", payload: movies });
     },
+
   },
 });
 

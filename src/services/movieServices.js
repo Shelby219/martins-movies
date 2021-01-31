@@ -11,7 +11,11 @@ const apiKey = process.env.REACT_APP_APIKEY
 
 let randomPage = Math.floor(Math.random() * 500);
 
-
+export async function getAllMovieData(page) {
+  // call to server to register user
+  const response = await api.get(`discover/movie?api_key=${apiKey}&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`);
+  return response.data;
+}
 
 export async function searchMoviesByKeyword(keyword) {
   // call to server to register user

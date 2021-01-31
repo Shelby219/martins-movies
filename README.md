@@ -224,6 +224,8 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 * **1st February 2021**
     * Query parameters for the search results page input.
+    * **Blockers**:
+        * Pagination for all listings page was set up smoothly, just issues with setting the current page loading time a bit slow, so clicking over pages loads old data, then refreshing loads correct page.... This was resolved by changing how the main axios call was made, correct in a useEffect, with the useEffect being called every time the page number changes. 
 -----
 
 ### Getting Started with Create React App
