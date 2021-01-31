@@ -8,17 +8,17 @@ import {searchMoviesByKeyword} from '../services/movieServices.js';
 function Home() {
 
 
-  useEffect(() => {
-   searchMoviesByKeyword("and")
-   .then((res) => {
+  // useEffect(() => {
+  //  searchMoviesByKeyword("and")
+  //  .then((res) => {
 
-       console.log("Success", res)
-      })
-      .catch((error) => {
-        console.log("Error", error.response)
-      })
+  //      console.log("Success", res)
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error", error.response)
+  //     })
 
-    }, []);
+  //   }, []);
 
 
   return (
