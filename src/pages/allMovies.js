@@ -1,9 +1,10 @@
 import React,{useEffect, useState} from "react";
+import { connect } from "react-redux";
 
 import {MovieContainer, BaseContainer} from '../components/styles.js';
 import MovieCard  from '../components/movieCard.js';
 import UnderNavHeader  from '../components/underNavheader.js';
-import Loading  from '../components/loading.js';
+
 
 //Material UI
 import { makeStyles } from "@material-ui/styles";
@@ -13,7 +14,6 @@ import { Pagination } from '@material-ui/lab';
 
 //Axios Services
 import {getAllMovieData} from '../services/movieServices.js';
-
 
   const useStyles = makeStyles((theme) => ({
     pagination: {
@@ -28,7 +28,7 @@ import {getAllMovieData} from '../services/movieServices.js';
     },
     }));
 
-function AllMovieListings({actions}) {
+function AllMovieListings({listOfWatchedMovies}) {
    const classes = useStyles();
    //const { pagination, paginationItem} = useStyles();
    const [isLoaded, setisLoaded] = useState(false)
@@ -87,14 +87,18 @@ function AllMovieListings({actions}) {
                  </MovieContainer>
                 </>
                 ) : (
-				<div><Loading/></div>
+				<div></div>
 			    )}
             </BaseContainer>
   );
 }
 
 
+const mapStateToProps = (state) => ({
+  listOfWatchedMovies: state.movies.watchedMovies,
+});
 
 
-export default AllMovieListings;
+
+export default connect(mapStateToProps)(AllMovieListings);
 

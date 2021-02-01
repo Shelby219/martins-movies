@@ -9,7 +9,7 @@ import {searchMoviesByKeyword} from '../services/movieServices.js';
 
 function Home({actions,listOfMovies}) {
    let history = useHistory();
-   console.log("check state",listOfMovies)
+  
    //const [searchInput, setSearchInput] = useState("")
    const [searchInput, setSearchInput] = useState({
      keyword: "",

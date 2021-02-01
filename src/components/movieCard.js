@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -10,10 +10,9 @@ import genresArray from "../data/genres.json";
 
 function MovieCard({movie, actions, listOfWatchedMovies}) {
    //const [genreState, setGenreState] = useState("")
-   const [checked, setChecked] = useState(false)
-   const [watched, setWatched] = useState([])
-   const {id, title, name, poster_path, vote_average, genre_ids, overview} = movie
 
+   const {id, title, name, poster_path, vote_average, genre_ids, overview, watched} = movie
+   const [checked, setChecked] = useState(watched === true ? watched  : false)
 
   //Filtering the genres by ID from DB to return from JSON
    const filterByReference = (arr1, arr2) => {
@@ -32,28 +31,20 @@ function MovieCard({movie, actions, listOfWatchedMovies}) {
         //setGenreState(displayGens)
     }
 
-    function checkWatchedIDs () {
 
-    }
+   //console.log("check watched", isWatched(id))
 
-   console.log("check unwatched", listOfWatchedMovies)
     function handleChecker (event){
       if (checked === false){
           console.log("now marked watched")
           setChecked(true)
-          setWatched([
-            ...watched,
-             {
-                   movieId: event.target.name,
-                   watched: true
-              }
-          ])
           console.log(listOfWatchedMovies)
           actions.markWatched(event.target.name)
       } else if (checked === true) {
         console.log("now marked not watched")
           setChecked(false)
           actions.unMarkWatched(event.target.name)
+           console.log(listOfWatchedMovies)
       } else {
         console.log("error")
       }
@@ -62,6 +53,7 @@ function MovieCard({movie, actions, listOfWatchedMovies}) {
   return (
       <MovieCardStyle key={id}>
         <Link to={"/#"} style={{ textDecoration: 'none' }} >
+                        {id}
                        {poster_path ?
                        <img alt="movie poster" src={`https://image.tmdb.org/t/p/original${poster_path}`} width="100%" />
                        :

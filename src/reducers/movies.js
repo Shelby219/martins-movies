@@ -13,11 +13,11 @@ const martinsMovies = createReducer(initialState, (builder) => {
     .addCase(getMovies, (state, action) => {
       state.movieData = action.payload;
       ///state.watchedMovies = []
-      console.log("movie s c")
+      //console.log("movie s c")
     })
     .addCase(addTooWatchedMovies, (state, action) => {
-      console.log("check payload", action.payload)
-      console.log("check state", state)
+      //console.log("check payload", action.payload)
+      //console.log("check state", state)
        const newMovie = action.payload
        return {
                 ...state,
@@ -31,7 +31,7 @@ const martinsMovies = createReducer(initialState, (builder) => {
      .addCase(deleteWatchedMovies, (state, action) => {
        return {
                 ...state,
-                watchedMovies: [state.watchedMovies.filter(movie => movie.movieId !== action.payload)]
+                watchedMovies: state.watchedMovies.filter(movie => movie.movieId !== action.payload)
             }
      })
 
