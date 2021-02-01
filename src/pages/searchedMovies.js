@@ -145,7 +145,7 @@ function MovieListings({listOfMovies}) {
 
     return (
             <BaseContainer>
-             <UnderNavHeader/>
+             <UnderNavHeader location="searchedMovies"/>
                     <MovieContainer>
                     {listOfMovies.length !== 0 ? (
                       <>

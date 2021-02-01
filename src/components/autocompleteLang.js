@@ -16,6 +16,19 @@ function countryToFlag(isoCode) {
  }
 
 const useStyles = makeStyles({
+  autocomplete: {
+      all: "unset",
+      borderRadius: "5px 0px 0px  5px",
+      backgroundColor: "white",
+      color: "#a098a4",
+      alignSelf: "center",
+      height: "25px",
+      padding: "15px",
+      margin: "10px",
+      "@media (min-width: 600px)": {
+            width: "500px"
+         },
+  },
   option: {
     fontSize: 15,
     '& > span': {
@@ -29,34 +42,34 @@ export default function CountrySelect() {
   const classes = useStyles();
 
   return (
-    <Autocomplete
-      id="lang-select"
-      style={{ width: 300 }}
+        <Autocomplete
+          id="lang-select"
+          style={{ width: 300 }}
 
-      options={allLanguages}
-      classes={{
-        option: classes.option,
-      }}
-      autoHighlight
-      getOptionLabel={(option) => option.english_name}
-      renderOption={(option) => (
-        <React.Fragment>
-           {/* <span>{countryToFlag(option.iso_639_1)}</span> */}
-          {option.iso_639_1.toUpperCase()} -  {option.english_name}
-        </React.Fragment>
-      )}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          label="Choose a language"
-          variant="outlined"
-          inputProps={{
-            ...params.inputProps,
-            autoComplete: 'new-password', // disable autocomplete and autofill
+          options={allLanguages}
+          classes={{
+            option: classes.option,
           }}
-        />
-      )}
-    />
+          autoHighlight
+          getOptionLabel={(option) => option.english_name}
+          renderOption={(option) => (
+            <React.Fragment>
+              {/* <span>{countryToFlag(option.iso_639_1)}</span> */}
+              {option.iso_639_1.toUpperCase()} -  {option.english_name}
+            </React.Fragment>
+          )}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="Choose a language"
+              variant="outlined"
+              inputProps={{
+                ...params.inputProps,
+                autoComplete: 'new-password', // disable autocomplete and autofill
+              }}
+            />
+          )}
+         />
   );
 }
 

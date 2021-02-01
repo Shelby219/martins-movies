@@ -66,7 +66,7 @@ function AllMovieListings({actions, allMovieDataPerPage}) {
 
   return (
         <BaseContainer>
-           <UnderNavHeader/>
+           <UnderNavHeader location="allMovies"/>
             {isLoaded ? (
                <>
                 <div className={classes.pagination}>

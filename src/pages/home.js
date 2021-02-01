@@ -9,24 +9,45 @@ import {searchMoviesByKeyword} from '../services/movieServices.js';
 
 function Home({actions}) {
    let history = useHistory();
-   const [searchInput, setSearchInput] = useState("")
-
+   //const [searchInput, setSearchInput] = useState("")
+   const [searchInput, setSearchInput] = useState({
+     keyword: "",
+     year: "",
+     language: ""
+   })
 
    function getSearchInput (event){
-      setSearchInput(event)
-      //console.log(searchInput)
-   }
+      //setSearchInput(event)
+      setSearchInput({
+            ...searchInput,
+            keyword: event
+        })
+    }
+
+    function getYearInput (event){
+        setSearchInput({
+            ...searchInput,
+            year: event
+        })
+      }
+    function getLangInput (event){
+        setSearchInput({
+            ...searchInput,
+            language: event
+        })
+      }
 
    async function  searchMovies (){
-      await searchMoviesByKeyword(searchInput)
+      await searchMoviesByKeyword(searchInput.keyword)
        .then((res) => {
+           console.log("Check ", searchInput)
            console.log("Success", res.results)
            actions.getMoviesDisplay(res.results)
-           history.push(`/searched-movies?search=${searchInput}`);
+           history.push(`/searched-movies?search=${searchInput.keyword}`);
           })
           .catch((error) => {
             console.log("Error", error)
-          })
+        })
     }
 
    useEffect(() => {
@@ -41,7 +62,9 @@ function Home({actions}) {
                   <h1> SEARCH FOR A MOVIE! </h1>
                   <div>
                   <SearchBar
-                    searchHandler={getSearchInput}
+                    searchKeywordHandler={getSearchInput}
+                    searchYearHandler={getYearInput}
+                    searchLangHandler={getYearInput}
                     handleSubmit={searchMovies}
                   />
 
