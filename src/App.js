@@ -10,11 +10,11 @@ import NotFound from "./pages/404.js";
 
 //components
 import Nav from "./components/nav.js";
+import Footer from "./components/footer.js";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 
-function App({actions}) {
-
+function App() {
   return (
      <Body>
           <CssBaseline />
@@ -26,6 +26,7 @@ function App({actions}) {
             <Route  exact  path="/all-movies"  component={AllMovies} />
             <Route component={NotFound} />
             </Switch>
+            <Footer />
           </BrowserRouter>
 
       </Body>

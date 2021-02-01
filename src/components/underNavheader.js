@@ -14,26 +14,25 @@ function UnderNavHeader({location}) {
         case  "allMovies":
             // code block
                 return (
-                                    <ListNav>
-                                        <h1 style={{textAlign: "center", filter: "drop-shadow(2px 4px 8px #585858)"}}> View All Movies </h1>
-                                    </ListNav>
+                        <ListNav>
+                             <h1 style={{textAlign: "center", filter: "drop-shadow(2px 4px 8px #585858)"}}> View All Movies </h1>
+                        </ListNav>
 
             );
             break;
         case "searchedMovies":
             return (
-                                        <ListNav>
-                                            <h1> Search Results for: {query.get("search")}  </h1>
-                                        </ListNav>
+                           <ListNav>
+                              <h1> Search Results for: {query.get("search")}  </h1>
+                            </ListNav>
 
                 );
-
             break;
         default:
               return (
-                                <ListNav>
-                                    <h1> Error: 404 </h1>
-                                </ListNav>
+                         <ListNav>
+                          <h1> Error: 404 </h1>
+                         </ListNav>
 
           );
         }

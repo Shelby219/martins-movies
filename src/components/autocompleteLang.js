@@ -15,20 +15,10 @@ function countryToFlag(isoCode) {
     : isoCode;
  }
 
+
+
 const useStyles = makeStyles({
-  autocomplete: {
-      all: "unset",
-      borderRadius: "5px 0px 0px  5px",
-      backgroundColor: "white",
-      color: "#a098a4",
-      alignSelf: "center",
-      height: "25px",
-      padding: "15px",
-      margin: "10px",
-      "@media (min-width: 600px)": {
-            width: "500px"
-         },
-  },
+
   option: {
     fontSize: 15,
     '& > span': {

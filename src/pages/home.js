@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from "react";
+import React,{useState} from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {HomePage, BaseContainer} from '../components/styles.js';
@@ -7,16 +7,16 @@ import SearchBar from '../components/searchBar.js';
 
 import {searchMoviesByKeyword} from '../services/movieServices.js';
 
-function Home({actions,listOfMovies}) {
+function Home({actions,listOfMovies, listOfWatchedMovies}) {
    let history = useHistory();
-  
+
    //const [searchInput, setSearchInput] = useState("")
    const [searchInput, setSearchInput] = useState({
      keyword: "",
      year: "",
      language: ""
    })
-
+  //gathering the search input
    function getSearchInput (event){
       //setSearchInput(event)
       setSearchInput({
@@ -25,37 +25,33 @@ function Home({actions,listOfMovies}) {
         })
     }
 
-    function getYearInput (event){
-        setSearchInput({
-            ...searchInput,
-            year: event
-        })
-      }
-    function getLangInput (event){
-        setSearchInput({
-            ...searchInput,
-            language: event
-        })
-      }
-
+ //Calling search movie function which calls API
    async function  searchMovies (){
      let search = searchInput.keyword
       await searchMoviesByKeyword(search, "1")
-       .then((res) => {
-           console.log("Check ", searchInput)
-           console.log("Success", res.results)
-           actions.getMoviesDisplay(res.results)
-           history.push(`/searched-movies?search=${searchInput.keyword}`);
-          })
+       .then(async(res) => {
+          if (listOfWatchedMovies.length === 0 || listOfWatchedMovies === undefined){
+                console.log("hit here")
+           //return res.results
+          } else {
+          const copy = res.results
+           //console.log("hit copy",copy)
+          let resss = await  copy.map(x =>
+           Object.assign(x, listOfWatchedMovies.find(y => y.movieId == x.id)
+           ));
+          console.log("hit resss",resss)
+          return resss
+          }
+        })
+        .then((result) => {
+           actions.getMoviesDisplay(result)
+          history.push(`/searched-movies?search=${searchInput.keyword}`);
+        })
           .catch((error) => {
             console.log("Error", error)
         })
     }
 
-   useEffect(() => {
-
-
-   }, []);
 
   return (
         <BaseContainer>
@@ -64,11 +60,8 @@ function Home({actions,listOfMovies}) {
                   <div>
                   <SearchBar
                     searchKeywordHandler={getSearchInput}
-                    searchYearHandler={getYearInput}
-                    searchLangHandler={getYearInput}
                     handleSubmit={searchMovies}
                   />
-
                   </div>
                 </HomePage>
           </BaseContainer>
@@ -76,7 +69,8 @@ function Home({actions,listOfMovies}) {
 }
 
 const mapStateToProps = (state) => ({
-  listOfMovies: state.movies,
+   listOfMovies: state.movies.movieData,
+   listOfWatchedMovies: state.movies.watchedMovies,
 });
 
 const mapDispatchToProps = (dispatch) => ({

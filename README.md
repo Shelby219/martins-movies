@@ -228,11 +228,14 @@ https://developers.themoviedb.org/3/getting-started/introduction
     * Added pagination to the search page.
     * Marking as watched process begun, can mark as watched and add to redux.
     * Marked as unwatched in state set up.
+    * Successful for the search results page keeping "watched" state for checked boxes. 
     * **Blockers**:
         * Pagination for all listings page was set up smoothly, just issues with setting the current page loading time a bit slow, so clicking over pages loads old data, then refreshing loads correct page.... This was resolved by changing how the main axios call was made, correct in a useEffect, with the useEffect being called every time the page number changes.
         * Determining how to go about the search bar for keyword, year OR language. 3 inputs? Checkboxes which determine the input? On search bar that has validation behind the scenes determining?
         * Issues with the content from search being overridden by Local storage, therefor leaving the page empty. This happened in process of marking as watched.
-        * Stuck on comparing two arrays of objects, one being the movie data, the other being the watched movie array. Checking if the ID is in watched to enable to checkbox to stay ticked. 
+        * Stuck on comparing two arrays of objects, one being the movie data, the other being the watched movie array. Checking if the ID is in watched to enable to checkbox to stay ticked.
+        * Extra Validation needed for marking watched in redux.
+
 -----
 
 ### Getting Started with Create React App

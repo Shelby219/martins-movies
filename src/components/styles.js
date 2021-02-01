@@ -112,6 +112,8 @@ export const ReadMoreButton = styled.button `
      text-align: center;
 `
 
+
+
 //Button for marked as watched
 export const Watched = styled.div `
      padding: 15px;
@@ -132,6 +134,8 @@ export const Watched = styled.div `
      padding-top: 2px;
      }
 `
+
+
 
 //Martins Movies Logo
 export const Logo = styled.div `
@@ -190,7 +194,7 @@ export const HomePage = styled.div `
       align-self: center;
       height: 25px;
       padding: 15px;
-      margin: 10px;
+
       width: 255px;
           @media only screen and (min-width: 600px) {
           width: 500px;

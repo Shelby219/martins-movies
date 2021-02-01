@@ -9,7 +9,8 @@ if (process.env.NODE_ENV !== "production") {
 const apiKey = process.env.REACT_APP_APIKEY
 
 
-let randomPage = Math.floor(Math.random() * 500);
+//let randomPage = Math.floor(Math.random() * 500);
+
 
 export async function getAllMovieData(page) {
   // call to server to register user
@@ -23,14 +24,14 @@ export async function searchMoviesByKeyword(keyword, page) {
   return response.data;
 }
 
-export async function searchMoviesByYear(year) {
-  // call to server to register user
-  const response = await api.get(`discover/movie?api_key=${apiKey}&sort_by=popularity.desc&include_adult=false&include_video=false&page=${randomPage}&year=${year}`);
-  return response.data;
-}
+// export async function searchMoviesByYear(year) {
+//   // call to server to register user
+//   const response = await api.get(`discover/movie?api_key=${apiKey}&sort_by=popularity.desc&include_adult=false&include_video=false&page=${randomPage}&year=${year}`);
+//   return response.data;
+// }
 
-export async function searchMoviesByLanguage(lang) {
-  // call to server to register user
-  const response = await api.get(`discover/movie?api_key=${apiKey}&language=${lang}&sort_by=popularity.desc&include_adult=false&include_video=false&page=${randomPage}`);
-  return response.data;
-}
+// export async function searchMoviesByLanguage(lang) {
+//   // call to server to register user
+//   const response = await api.get(`discover/movie?api_key=${apiKey}&language=${lang}&sort_by=popularity.desc&include_adult=false&include_video=false&page=${randomPage}`);
+//   return response.data;
+// }

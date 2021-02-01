@@ -8,7 +8,7 @@ function NotFound() {
   return (
     <BaseContainer>
      <UnderNavHeader location="notFoundPage" />
-     <div style={{textAlign: "center", margin: "100px", fontSize: "1.4em"}}>Oops page not found.....</div>
+     <div style={{ textAlign: "center", margin: "100px", fontSize: "1.4em"}}>Oops page not found.....</div>
       <Link to={"/"} style={{ textDecoration: 'none', alignSelf: "center", }}>
        <ReadMoreButton>Go Home</ReadMoreButton>
      </Link>

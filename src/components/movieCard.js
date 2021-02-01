@@ -1,7 +1,8 @@
-import React,{useState, useEffect} from "react";
+import React,{useState} from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+//Styles
 import {MovieCardStyle, ReadMoreButton, Watched} from '../components/styles.js';
 
 
@@ -9,9 +10,11 @@ import {MovieCardStyle, ReadMoreButton, Watched} from '../components/styles.js';
 import genresArray from "../data/genres.json";
 
 function MovieCard({movie, actions, listOfWatchedMovies}) {
-   //const [genreState, setGenreState] = useState("")
 
+   //Destructuring the movie
    const {id, title, name, poster_path, vote_average, genre_ids, overview, watched} = movie
+
+   //Filtering for checkbox
    const [checked, setChecked] = useState(watched === true ? watched  : false)
 
   //Filtering the genres by ID from DB to return from JSON
@@ -28,25 +31,22 @@ function MovieCard({movie, actions, listOfWatchedMovies}) {
             return displayGens.push(genre.name)
         })
         return displayGens.join(',  ');
-        //setGenreState(displayGens)
+
     }
 
-
-   //console.log("check watched", isWatched(id))
-
+   //Handling the checkbox being checked
     function handleChecker (event){
       if (checked === false){
-          console.log("now marked watched")
+          console.log("watched")
           setChecked(true)
-          console.log(listOfWatchedMovies)
           actions.markWatched(event.target.name)
+
       } else if (checked === true) {
-        console.log("now marked not watched")
+          console.log("not watched")
           setChecked(false)
           actions.unMarkWatched(event.target.name)
-           console.log(listOfWatchedMovies)
       } else {
-        console.log("error")
+         console.log("error")
       }
     }
 
@@ -71,7 +71,7 @@ function MovieCard({movie, actions, listOfWatchedMovies}) {
      </Link>
 
      <div class="buttonGroup" >
-         <a to={"/#"} style={{ textDecoration: 'none' }} >
+         <a href={"/#"} style={{ textDecoration: 'none' }} >
               <ReadMoreButton>Read More</ReadMoreButton>
           </a>
             <Watched>
@@ -81,7 +81,7 @@ function MovieCard({movie, actions, listOfWatchedMovies}) {
                   checked={checked}
                   onChange={handleChecker}
                   />
-            <span>Unwatched</span>
+            <span> {checked ? <> Watched </> :  <> Unwatched </>} </span>
           </Watched>
      </div>
    </MovieCardStyle>
