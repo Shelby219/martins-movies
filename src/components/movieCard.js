@@ -54,10 +54,11 @@ function MovieCard({movie, actions, listOfWatchedMovies}) {
       await getMovieIMDBID(id)
        .then(async(res) => {
          console.log(res.imdb_id)
-         window.open(`https://www.imdb.com/title/${res.imdb_id}/`);
+         window.open(`https://www.imdb.com/title/${res.imdb_id}/`)
         })
         .catch((error) => {
             console.log("Error", error)
+            alert("No IMDB link available")
         })
     }
 
