@@ -1,23 +1,19 @@
 import { createAction, createReducer } from "@reduxjs/toolkit";
 
 
-const getAllMoviesPerPage = createAction("getAllMoviesPerPage");
+
 const getMovies = createAction("getMovies");
 const addTooWatchedMovies = createAction("addTooWatchedMovies");
 const deleteWatchedMovies = createAction("deleteWatchedMovies");
 
-const initialState = { allMovieData: [], movieData: [], watchedMovies: [] };
+const initialState = { allMovieData: [], movieData: null, watchedMovies: [] };
 
 const martinsMovies = createReducer(initialState, (builder) => {
   builder
-    .addCase(getAllMoviesPerPage, (state, action) => {
-        state.allMovieData = action.payload;
-        })
     .addCase(getMovies, (state, action) => {
       state.movieData = action.payload;
       ///state.watchedMovies = []
-      console.log("movie state changed")
-      //console.log(action.payload)
+      console.log("movie s c")
     })
     .addCase(addTooWatchedMovies, (state, action) => {
       console.log("check payload", action.payload)
@@ -33,13 +29,14 @@ const martinsMovies = createReducer(initialState, (builder) => {
             }
      })
      .addCase(deleteWatchedMovies, (state, action) => {
-       const newMovie = action.payload
-       console.log("movie marker removed")
-       return state.watchedMovies.filter(movie => movie.movieId !== newMovie);
-
+       return {
+                ...state,
+                watchedMovies: [state.watchedMovies.filter(movie => movie.movieId !== action.payload)]
+            }
      })
 
 });
+
 
 
 export default martinsMovies

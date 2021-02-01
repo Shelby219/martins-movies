@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from "react";
-import { connect } from "react-redux";
+
 import {MovieContainer, BaseContainer} from '../components/styles.js';
 import MovieCard  from '../components/movieCard.js';
 import UnderNavHeader  from '../components/underNavheader.js';
@@ -28,7 +28,7 @@ import {getAllMovieData} from '../services/movieServices.js';
     },
     }));
 
-function AllMovieListings({actions, allMovieDataPerPage}) {
+function AllMovieListings({actions}) {
    const classes = useStyles();
    //const { pagination, paginationItem} = useStyles();
    const [isLoaded, setisLoaded] = useState(false)
@@ -94,19 +94,7 @@ function AllMovieListings({actions, allMovieDataPerPage}) {
 }
 
 
-const mapStateToProps = (state) => ({
-  allMovieDataPerPage: state.movies.allMovieData,
-});
 
 
-const mapDispatchToProps = (dispatch) => ({
-  actions: {
-   getAllMoviesPerPage: (movies) => {
-      dispatch({ type: "getAllMoviesPerPage", payload: movies });
-    },
-
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(AllMovieListings);
+export default AllMovieListings;
 

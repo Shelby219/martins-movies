@@ -36,9 +36,10 @@ function MovieCard({movie, actions, listOfWatchedMovies}) {
 
     }
 
-
+   console.log("check unwatched", listOfWatchedMovies)
     function handleChecker (event){
       if (checked === false){
+          console.log("now marked watched")
           setChecked(true)
           setWatched([
             ...watched,
@@ -49,12 +50,10 @@ function MovieCard({movie, actions, listOfWatchedMovies}) {
           ])
           console.log(listOfWatchedMovies)
           actions.markWatched(event.target.name)
-          console.log("watcheddd", listOfWatchedMovies)
       } else if (checked === true) {
+        console.log("now marked not watched")
           setChecked(false)
-          console.log("unmarked")
           actions.unMarkWatched(event.target.name)
-          console.log("check unwatched", listOfWatchedMovies)
       } else {
         console.log("error")
       }
