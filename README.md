@@ -107,7 +107,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 * **The Movie DB API** - An API which has to service of fetching movie, TV and actor images and data.
 
 **Other**
-* **Heroku**  - Is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud supporting several programming languages.
+* **Netlify**  - Is a serverless platform enabling intuitive git-based workflows and automated deployments. Heroku was my first choice for deployment, but due to time I chose Netlify as I had had used all my Heroku Apps available on the payment tier I was on. 
 * **GitHub** - Is a provider of Internet hosting for software development and version control using Git and it was my Version Control Host.
 
 
@@ -210,7 +210,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 * **1st February 2021**
     * Query parameters for the search results page input.
-    * Initial Deployment 
+    * Initial Deployment
     * All movies page completed, with pagination for all movie listings up to 500 per the API - the data for this page was held with 'useState' over redux, possibly more efficient?
     * Added pagination to the search page.
     * Marking as watched process begun, can mark as watched and add to redux.
