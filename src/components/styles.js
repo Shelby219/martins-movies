@@ -112,6 +112,8 @@ export const ReadMoreButton = styled.button `
      text-align: center;
 `
 
+
+
 //Button for marked as watched
 export const Watched = styled.div `
      padding: 15px;
@@ -132,6 +134,8 @@ export const Watched = styled.div `
      padding-top: 2px;
      }
 `
+
+
 
 //Martins Movies Logo
 export const Logo = styled.div `
@@ -182,7 +186,7 @@ export const HomePage = styled.div `
       align-items: center;
       margin-top: 20px;
     }
-    .searchInput{
+    .searchInputClass{
       all: unset;
       border-radius: 5px 0px 0px  5px;
       background-color: white;
@@ -190,9 +194,10 @@ export const HomePage = styled.div `
       align-self: center;
       height: 25px;
       padding: 15px;
+
       width: 255px;
           @media only screen and (min-width: 600px) {
-          width: 700px;
+          width: 500px;
         }
       box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     }

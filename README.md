@@ -175,7 +175,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 ### Development Log
 
-* **28th January 2020**
+* **28th January 2021**
     * Received Client Brief and review client requirements. Along with reviewing the design requirements.
     * Researched and reviewing the movie API, begun some simple test points with Postman.
     * Begun documentation.
@@ -196,7 +196,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 <br>
 
-* **29th January 2020**
+* **29th January 2021**
     * Received notes that design is to match the basis site, so I began reviewing the nav bar and adjusting the styling and set up accordingly.
     * Continued researching the movie API, and tested endpoints via postman.
     * Discovered that some movies have titles and some have names, so if the search returns name then that will be used in rendering the movie.
@@ -210,15 +210,31 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 <br>
 
-* **31st January 2020**
+* **31st January 2021**
     * Redux storage for movies implemented.
     * Redux storage for watched movies implemented.
     * Local storage for saving watched movies implemented.
     * Local storage for movie searched implemented.
     * Update search bar- by searching with 3 inputs, keywords, language and year, with validation on all 3.
+    * Restructure search bar to be seperate components and added on change and handle submit for search.
+    * Added autocomplete components for language options, using JSON file from the API, not sure if implementing yet.
     * **Blockers**:
         * Determining how to store "watched or unwatched for each movie" whilst using API calls to get the movies via search, being able to store a watched reference. This was overcome by using Redux storage to store a array of MOVIES_WATCHED just storing the movies ID and a watched boolean. Then when displaying the movies returned from the Axios call, using a function to check if the movie is watched in storage before displaying.
-        * Environment Variable Issues. Created a customer APIKEY enviroment variable for development, had some issues due to the 'create-react-app' configuration which requires all .env variables to start with "REACT_APP_". 
+        * Environment Variable Issues. Created a customer APIKEY enviroment variable for development, had some issues due to the 'create-react-app' configuration which requires all .env variables to start with "REACT_APP_".
+
+* **1st February 2021**
+    * Query parameters for the search results page input.
+    * All movies page completed, with pagination for all movie listings up to 500 per the API.
+    * Added pagination to the search page.
+    * Marking as watched process begun, can mark as watched and add to redux.
+    * Marked as unwatched in state set up.
+    * Successful for the search results page keeping "watched" state for checked boxes. 
+    * **Blockers**:
+        * Pagination for all listings page was set up smoothly, just issues with setting the current page loading time a bit slow, so clicking over pages loads old data, then refreshing loads correct page.... This was resolved by changing how the main axios call was made, correct in a useEffect, with the useEffect being called every time the page number changes.
+        * Determining how to go about the search bar for keyword, year OR language. 3 inputs? Checkboxes which determine the input? On search bar that has validation behind the scenes determining?
+        * Issues with the content from search being overridden by Local storage, therefor leaving the page empty. This happened in process of marking as watched.
+        * Stuck on comparing two arrays of objects, one being the movie data, the other being the watched movie array. Checking if the ID is in watched to enable to checkbox to stay ticked.
+        * Extra Validation needed for marking watched in redux.
 
 -----
 
