@@ -68,7 +68,7 @@ function MovieListings({listOfMovies, actions, listOfWatchedMovies}) {
                     })
                 .catch((error) => {
                     console.log("Error", error.response)
-                    alert("oops there has been an error")
+                    setErrors(error)
                 })
     };
 
