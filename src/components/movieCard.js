@@ -53,7 +53,6 @@ function MovieCard({movie, actions, listOfWatchedMovies}) {
   return (
       <MovieCardStyle key={id}>
         <Link to={"/#"} style={{ textDecoration: 'none' }} >
-                        {id}
                        {poster_path ?
                        <img alt="movie poster" src={`https://image.tmdb.org/t/p/original${poster_path}`} width="100%" />
                        :
@@ -67,7 +66,6 @@ function MovieCard({movie, actions, listOfWatchedMovies}) {
                         <p>{filterByReference(genresArray, genre_ids)}</p>
                       </div>
                       <div class="overview">{overview}</div>
-
      </Link>
 
      <div class="buttonGroup" >

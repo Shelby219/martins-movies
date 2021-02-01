@@ -117,7 +117,6 @@ https://developers.themoviedb.org/3/getting-started/introduction
 -----
 ### Functionality/Features
 
-
 * Home page
 * Search for movies via keyword, language and year.
 * View movie data via results page.
@@ -134,32 +133,12 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 -----
 
-### Wireframes
-
-###### Mobile
-
-<div style="width:70%; margin: 0 auto;"><img src="./docs/wfmobile.png"/></div>
-
-###### Tablet
-
-<div style="width:70%; margin: 0 auto;"><img src="./docs/wftablet.png"/></div>
-
-
-###### Desktop
-<div style="width:70%; margin: 0 auto;"><img src="./docs/wfdesktop.png"/></div>
-
-
------
-
-
 ### Data Flow Diagram
-
 
 <div style="width:70%; margin: 0 auto;"><img src="./docs/dfd.png"/></div>
 
 
 -----
-
 
 ### Implementation Plan
 
@@ -167,9 +146,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 * File Architecture Set up
 * Redux Set up
 * Component Base Code
-*
 * Cypress or Enzyme Tests ?
-
 
 -----
 
@@ -228,7 +205,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
     * Added pagination to the search page.
     * Marking as watched process begun, can mark as watched and add to redux.
     * Marked as unwatched in state set up.
-    * Successful for the search results page keeping "watched" state for checked boxes. 
+    * Successful for the search results page keeping "watched" state for checked boxes.
     * **Blockers**:
         * Pagination for all listings page was set up smoothly, just issues with setting the current page loading time a bit slow, so clicking over pages loads old data, then refreshing loads correct page.... This was resolved by changing how the main axios call was made, correct in a useEffect, with the useEffect being called every time the page number changes.
         * Determining how to go about the search bar for keyword, year OR language. 3 inputs? Checkboxes which determine the input? On search bar that has validation behind the scenes determining?
@@ -236,6 +213,8 @@ https://developers.themoviedb.org/3/getting-started/introduction
         * Stuck on comparing two arrays of objects, one being the movie data, the other being the watched movie array. Checking if the ID is in watched to enable to checkbox to stay ticked.
         * Extra Validation needed for marking watched in redux.
 
+* **2nd February 2021**
+    * IMDB API endpoint set up, when the user clicks on Readmore it will make an API request to get the IMDB ID to send the user to IMDB.
 -----
 
 ### Getting Started with Create React App
