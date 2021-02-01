@@ -107,11 +107,12 @@ https://developers.themoviedb.org/3/getting-started/introduction
 * **The Movie DB API** - An API which has to service of fetching movie, TV and actor images and data.
 
 **Other**
-* **Netlify**  - Is a serverless platform enabling intuitive git-based workflows and automated deployments. Heroku was my first choice for deployment, but due to time I chose Netlify as I had had used all my Heroku Apps available on the payment tier I was on. 
+* **Netlify**  - Is a serverless platform enabling intuitive git-based workflows and automated deployments. Heroku was my first choice for deployment, but due to time I chose Netlify as I had had used all my Heroku Apps available on the payment tier I was on.
 * **GitHub** - Is a provider of Internet hosting for software development and version control using Git and it was my Version Control Host.
-
+* **Images** - KLB theme images.
 
 -----
+
 ### Functionality/Features
 
 ###### Current
@@ -131,6 +132,14 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 ###### Upcoming
 * Search for movies by movie year and language available.
+
+-----
+
+### Testing
+
+* Manual testing via the console
+* Development user testing using local host
+* Production user testing once deployed
 
 -----
 
