@@ -40,7 +40,7 @@ function MovieListings({listOfMovies, actions, listOfWatchedMovies}) {
     const [isLoaded, setisLoaded] = useState(true)
     const [pageCount, setPageCount] = useState(500)
     const [currentPage, setCurrentPage] = useState(1);
-    
+    const [errors, setErrors] = useState(null);
 
     //Function which calls the Movie API keyword search if current page changes
     const handleAxiosData = async () => {
@@ -50,7 +50,7 @@ function MovieListings({listOfMovies, actions, listOfWatchedMovies}) {
                     setPageCount(res.total_pages)
                     if (listOfWatchedMovies.length === 0 || listOfWatchedMovies === undefined){
                     console.log("hit here")
-                    //return res.results
+                    return res.results
                     } else {
                     const copy = res.results
                     //console.log("hit copy",copy)
@@ -90,6 +90,7 @@ function MovieListings({listOfMovies, actions, listOfWatchedMovies}) {
              <UnderNavHeader location="searchedMovies"/>
              {isLoaded ? (
                <>
+                 {errors && <div style={{ textAlign: 'center', margin: '10px' }} >{errors}</div>}
                 <div className={classes.pagination}>
                      <Pagination
                         className={classes.paginationItem}

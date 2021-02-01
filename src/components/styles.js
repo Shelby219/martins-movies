@@ -194,8 +194,7 @@ export const HomePage = styled.div `
       align-self: center;
       height: 25px;
       padding: 15px;
-
-      width: 255px;
+      width: 235px;
           @media only screen and (min-width: 600px) {
           width: 500px;
         }

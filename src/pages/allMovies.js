@@ -35,7 +35,7 @@ function AllMovieListings({listOfWatchedMovies}) {
    const [pageCount, setPageCount] = useState(500)
    const [currentPage, setCurrentPage] = useState(1);
    const [movieData, setMovieData] = useState([]);
-
+   const [errors, setErrors] = useState(null);
    //function here that checks Redux for watched movies
 
 
@@ -47,7 +47,7 @@ function AllMovieListings({listOfWatchedMovies}) {
             setPageCount(res.total_pages)
                       if (listOfWatchedMovies.length === 0 || listOfWatchedMovies === undefined){
                           console.log("hit here")
-                          //return res.results
+                          return res.results
                       } else {
                         const copy = res.results
                         //console.log("hit copy",copy)
@@ -64,6 +64,7 @@ function AllMovieListings({listOfWatchedMovies}) {
           })
           .catch((error) => {
             console.log("Error", error.response)
+            setErrors(error)
           })
 	  };
 
@@ -78,8 +79,10 @@ function AllMovieListings({listOfWatchedMovies}) {
   return (
         <BaseContainer>
            <UnderNavHeader location="allMovies"/>
+
             {isLoaded ? (
                <>
+                {errors && <div style={{ textAlign: 'center', margin: '10px' }} >{errors}</div>}
                 <div className={classes.pagination}>
                      <Pagination
                         className={classes.paginationItem}
@@ -91,7 +94,7 @@ function AllMovieListings({listOfWatchedMovies}) {
                     />
                 </div>
                 <MovieContainer>
-                            {movieData.map((movie)=>
+                            {movieData && movieData.map((movie)=>
                                 <MovieCard key={movie.id} movie={movie}/>
                             )
                             }

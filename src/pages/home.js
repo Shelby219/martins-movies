@@ -31,8 +31,8 @@ function Home({actions,listOfMovies, listOfWatchedMovies}) {
       await searchMoviesByKeyword(search, "1")
        .then(async(res) => {
           if (listOfWatchedMovies.length === 0 || listOfWatchedMovies === undefined){
-                console.log("hit here")
-           //return res.results
+            console.log("hit here")
+           return res.results
           } else {
           const copy = res.results
            //console.log("hit copy",copy)
