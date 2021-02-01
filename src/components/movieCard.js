@@ -8,9 +8,10 @@ import {MovieCardStyle, ReadMoreButton, Watched} from '../components/styles.js';
 
 import genresArray from "../data/genres.json";
 
-function MovieCard({movie, actions}) {
+function MovieCard({movie, actions, listOfWatchedMovies}) {
    //const [genreState, setGenreState] = useState("")
    const [checked, setChecked] = useState(false)
+   const [watched, setWatched] = useState([])
    const {id, title, name, poster_path, vote_average, genre_ids, overview} = movie
 
 
@@ -25,48 +26,43 @@ function MovieCard({movie, actions}) {
         //return res;
         const displayGens = []
         res.map((genre)=>{
-            displayGens.push(genre.name)
+            return displayGens.push(genre.name)
         })
         return displayGens.join(',  ');
         //setGenreState(displayGens)
     }
 
+    function checkWatchedIDs () {
+
+    }
 
 
-    function handleChecker (id){
-      if (checked === true){
+    function handleChecker (event){
+      if (checked === false){
+          setChecked(true)
+          setWatched([
+            ...watched,
+             {
+                   movieId: event.target.name,
+                   watched: true
+              }
+          ])
+          console.log(listOfWatchedMovies)
+          actions.markWatched(event.target.name)
+          console.log("watcheddd", listOfWatchedMovies)
+      } else if (checked === true) {
           setChecked(false)
           console.log("unmarked")
-          actions.markWatched(id)
+          actions.unMarkWatched(event.target.name)
+          console.log("check unwatched", listOfWatchedMovies)
       } else {
-          setChecked(true)
-          console.log("marked")
-          actions.unMarkWatched(id)
+        console.log("error")
       }
     }
-
-
-   function handleCheckerSubmit (){
-      if (checked === true){
-          actions.markWatched(id)
-      } else {
-          actions.unMarkWatched(id)
-      }
-    }
-    // function markedMovieHandler (){
-    //   actions.markWatched
-    // }
-    // function unmarkedMovieHandler (){
-    //   actions.unMarkWatched
-    // }
-
-   //console.log(filterByReference(genresArray, genre_ids));
 
   return (
-
       <MovieCardStyle key={id}>
         <Link to={"/#"} style={{ textDecoration: 'none' }} >
-
                        {poster_path ?
                        <img alt="movie poster" src={`https://image.tmdb.org/t/p/original${poster_path}`} width="100%" />
                        :
@@ -89,7 +85,7 @@ function MovieCard({movie, actions}) {
           </a>
             <Watched>
             <input
-                  name="isWatched"
+                  name={id}
                   type="checkbox"
                   checked={checked}
                   onChange={handleChecker}
@@ -97,8 +93,6 @@ function MovieCard({movie, actions}) {
             <span>Unwatched</span>
           </Watched>
      </div>
-
-
    </MovieCardStyle>
 
   );
@@ -123,6 +117,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieCard);
-
-
-

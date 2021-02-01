@@ -13,8 +13,7 @@ import Nav from "./components/nav.js";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 
-function App() {
-
+function App({actions}) {
 
   return (
      <Body>
@@ -32,5 +31,6 @@ function App() {
       </Body>
   );
 }
+
 
 export default App;

@@ -7,8 +7,9 @@ import SearchBar from '../components/searchBar.js';
 
 import {searchMoviesByKeyword} from '../services/movieServices.js';
 
-function Home({actions}) {
+function Home({actions,listOfMovies}) {
    let history = useHistory();
+   console.log("check state",listOfMovies)
    //const [searchInput, setSearchInput] = useState("")
    const [searchInput, setSearchInput] = useState({
      keyword: "",
@@ -55,7 +56,6 @@ function Home({actions}) {
 
    }, []);
 
-
   return (
         <BaseContainer>
                 <HomePage>
@@ -75,7 +75,7 @@ function Home({actions}) {
 }
 
 const mapStateToProps = (state) => ({
-  listOfMovies: state.martinsMovies,
+  listOfMovies: state.movies,
 });
 
 const mapDispatchToProps = (dispatch) => ({

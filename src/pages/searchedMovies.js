@@ -211,7 +211,7 @@ function MovieListings({listOfMovies, actions}) {
                     />
                 </div>
                         <MovieContainer>
-                            {listOfMovies.length !== 0 ? (
+                            {listOfMovies === undefined || listOfMovies.length !== 0  ? (
                             <>
                                 {listOfMovies && listOfMovies.map((movie)=>
                                     <MovieCard key={movie.id} movie={movie}/>
