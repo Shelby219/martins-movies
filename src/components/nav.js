@@ -22,7 +22,7 @@ const headersData = [
     href: "/",
   },
   {
-    label: "Movies",
+    label: "All Movies",
     href: "/all-movies",
   },
   {

@@ -1,14 +1,16 @@
 
 import {Body} from './components/styles.js';
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 //pages
 import Home from "./pages/home.js";
-import MovieListings from "./pages/movieListings.js";
+import MovieListings from "./pages/searchedMovies.js";
+import AllMovies from "./pages/allMovies.js";
 import NotFound from "./pages/404.js";
 
 //components
 import Nav from "./components/nav.js";
+import Footer from "./components/footer.js";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 
@@ -20,14 +22,16 @@ function App() {
           <Nav />
             <Switch>
             <Route  exact  path="/"  component={Home} />
-            <Route  exact  path="/listings"  component={MovieListings} />
-            <Route  exact  path="/all-movies"  component={MovieListings} />
+            <Route  exact  path="/searched-movies"  component={MovieListings} />
+            <Route  exact  path="/all-movies"  component={AllMovies} />
             <Route component={NotFound} />
             </Switch>
+            <Footer />
           </BrowserRouter>
 
       </Body>
   );
 }
+
 
 export default App;
