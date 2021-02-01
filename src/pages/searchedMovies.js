@@ -1,12 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
+import {useLocation} from "react-router-dom";
 import {MovieContainer, BaseContainer} from '../components/styles.js';
 import MovieCard  from '../components/movieCard.js';
 import UnderNavHeader  from '../components/underNavheader.js';
 
 
+
+
 function MovieListings({listOfMovies}) {
-   let testData = [{
+    function useQuery() {
+      return new URLSearchParams(useLocation().search);
+    }
+    let query = useQuery();
+    let testData = [{
             "adult": false,
             "backdrop_path": "/7LZ0K4FsALrt7OeNIGOVLNuKQRU.jpg",
             "genre_ids": [
@@ -134,37 +141,36 @@ function MovieListings({listOfMovies}) {
             "vote_average": 7.1,
             "vote_count": 931
         }]
-   console.log("check movies",listOfMovies)
+    console.log("check movies",listOfMovies)
 
-  return (
-        <BaseContainer>
-           <UnderNavHeader/>
-                <MovieContainer>
-
-                            {listOfMovies.map((movie)=>
-
-                                <MovieCard key={movie.id} movie={movie}/>
-                            )
-                            }
-
-               </MovieContainer>
+    return (
+            <BaseContainer>
+             <UnderNavHeader/>
+                    <MovieContainer>
+                    {listOfMovies.length !== 0 ? (
+                      <>
+                        {listOfMovies && listOfMovies.map((movie)=>
+                             <MovieCard key={movie.id} movie={movie}/>
+                            )}
+                      </>
+                    ):(
+                   <div style={{textAlign: "center", margin: "100px"}}>No Results Returned</div>
+                )}
+                </MovieContainer>
             </BaseContainer>
-  );
+    );
 }
-
 
 const mapStateToProps = (state) => ({
   listOfMovies: state.movies.movieData,
   listOfWatchedMovies: state.movies.watchedMovies,
 });
 
-
 const mapDispatchToProps = (dispatch) => ({
   actions: {
    getMoviesDisplay: (movies) => {
       dispatch({ type: "getMovies", payload: movies });
     },
-
   },
 });
 

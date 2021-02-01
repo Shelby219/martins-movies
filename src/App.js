@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 //pages
 import Home from "./pages/home.js";
-import MovieListings from "./pages/movieListings.js";
+import MovieListings from "./pages/searchedMovies.js";
 import AllMovies from "./pages/allMovies.js";
 import NotFound from "./pages/404.js";
 

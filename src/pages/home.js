@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from "react";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 import {HomePage, BaseContainer} from '../components/styles.js';
 import SearchBar from '../components/searchBar.js';
 
@@ -7,6 +8,7 @@ import SearchBar from '../components/searchBar.js';
 import {searchMoviesByKeyword} from '../services/movieServices.js';
 
 function Home({actions}) {
+   let history = useHistory();
    const [searchInput, setSearchInput] = useState("")
 
 
@@ -20,6 +22,7 @@ function Home({actions}) {
        .then((res) => {
            console.log("Success", res.results)
            actions.getMoviesDisplay(res.results)
+           history.push(`/searched-movies?search=${searchInput}`);
           })
           .catch((error) => {
             console.log("Error", error)
