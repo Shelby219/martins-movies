@@ -43,13 +43,24 @@ function AllMovieListings({listOfWatchedMovies}) {
    const handleAxiosData = async () => {
     setisLoaded(false)
     await getAllMovieData(currentPage)
-       .then((res) => {
-           //actions.getMoviesDisplay(res.results)
-	       setMovieData(res.results);
-           setPageCount(res.total_pages)
-           //console.log("Success", res.results)
-           console.log("Page", res.page)
-           setisLoaded(true)
+       .then(async(res) => {
+            setPageCount(res.total_pages)
+                      if (listOfWatchedMovies.length === 0 || listOfWatchedMovies === undefined){
+                          console.log("hit here")
+                          //return res.results
+                      } else {
+                        const copy = res.results
+                        //console.log("hit copy",copy)
+                        let resss = await  copy.map(x =>
+                          Object.assign(x, listOfWatchedMovies.find(y => y.movieId == x.id)
+                        ));
+                        console.log("hit resss",resss)
+                        return resss
+                    }
+                })
+            .then((result) => {
+                  setMovieData(result);
+                  setisLoaded(true)
           })
           .catch((error) => {
             console.log("Error", error.response)
@@ -96,6 +107,7 @@ function AllMovieListings({listOfWatchedMovies}) {
 
 const mapStateToProps = (state) => ({
   listOfWatchedMovies: state.movies.watchedMovies,
+
 });
 
 
