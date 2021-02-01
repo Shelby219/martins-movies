@@ -38,7 +38,7 @@ function Home({actions}) {
       }
 
    async function  searchMovies (){
-      await searchMoviesByKeyword(searchInput.keyword)
+      await searchMoviesByKeyword(searchInput.keyword, 1)
        .then((res) => {
            console.log("Check ", searchInput)
            console.log("Success", res.results)

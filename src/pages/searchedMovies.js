@@ -1,18 +1,46 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { connect } from "react-redux";
 import {useLocation} from "react-router-dom";
+
 import {MovieContainer, BaseContainer} from '../components/styles.js';
+
 import MovieCard  from '../components/movieCard.js';
 import UnderNavHeader  from '../components/underNavheader.js';
+import Loading  from '../components/loading.js';
 
+//Material UI
+import { makeStyles } from "@material-ui/styles";
+import { Pagination } from '@material-ui/lab';
 
+//Services
+import {searchMoviesByKeyword} from '../services/movieServices.js';
 
+  const useStyles = makeStyles((theme) => ({
+    pagination: {
+        paddingTop: "25px",
+        alignSelf: "center",
+        "@media (max-width: 330px)": {
+            maxWidth: "300px",
+         },
+    },
+    paginationItem: {
+        fontSize: "0.2em",
+    },
+    }));
 
-function MovieListings({listOfMovies}) {
+function MovieListings({listOfMovies, actions}) {
+
+    const classes = useStyles();
     function useQuery() {
       return new URLSearchParams(useLocation().search);
     }
     let query = useQuery();
+
+    const [isLoaded, setisLoaded] = useState(true)
+    const [pageCount, setPageCount] = useState(500)
+    const [currentPage, setCurrentPage] = useState(1);
+
+    //Test data for displaying components
     let testData = [{
             "adult": false,
             "backdrop_path": "/7LZ0K4FsALrt7OeNIGOVLNuKQRU.jpg",
@@ -141,22 +169,63 @@ function MovieListings({listOfMovies}) {
             "vote_average": 7.1,
             "vote_count": 931
         }]
-    console.log("check movies",listOfMovies)
+
+    //Function which calls the Movie API keyword search if current page changes
+    const handleAxiosData = async () => {
+        setisLoaded(false)
+        await searchMoviesByKeyword(query.get("search"), currentPage)
+            .then((res) => {
+                actions.getMoviesDisplay(res.results)
+                setPageCount(res.total_pages)
+                //console.log("Success", res.results)
+                //console.log("Page", res.page)
+                setisLoaded(true)
+                })
+                .catch((error) => {
+                    console.log("Error", error.response)
+                    alert("oops there has been an error")
+                })
+    };
+
+    const handlePageChange = (event, selectedObject) => {
+        setCurrentPage(selectedObject);
+    };
+
+    useEffect(() => {
+        handleAxiosData()
+    }, [currentPage]);
 
     return (
             <BaseContainer>
              <UnderNavHeader location="searchedMovies"/>
-                    <MovieContainer>
-                    {listOfMovies.length !== 0 ? (
-                      <>
-                        {listOfMovies && listOfMovies.map((movie)=>
-                             <MovieCard key={movie.id} movie={movie}/>
-                            )}
-                      </>
-                    ):(
-                   <div style={{textAlign: "center", margin: "100px"}}>No Results Returned</div>
-                )}
-                </MovieContainer>
+             {isLoaded ? (
+               <>
+                <div className={classes.pagination}>
+                     <Pagination
+                        className={classes.paginationItem}
+                        count={pageCount}
+                        page={currentPage}
+                        onChange={handlePageChange}
+                        boundaryCount={1}
+
+                    />
+                </div>
+                        <MovieContainer>
+                            {listOfMovies.length !== 0 ? (
+                            <>
+                                {listOfMovies && listOfMovies.map((movie)=>
+                                    <MovieCard key={movie.id} movie={movie}/>
+                                    )}
+                            </>
+                            ):(
+                        <div style={{textAlign: "center", margin: "100px"}}>No Results Returned</div>
+                        )}
+                        </MovieContainer>
+                </>
+                ) : (
+				<div><Loading/></div>
+			    )}
+
             </BaseContainer>
     );
 }

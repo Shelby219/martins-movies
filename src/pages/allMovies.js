@@ -8,7 +8,7 @@ import Loading  from '../components/loading.js';
 //Material UI
 import { makeStyles } from "@material-ui/styles";
 import { Pagination } from '@material-ui/lab';
-import {Typography} from "@material-ui/core";
+
 
 
 //Axios Services
@@ -54,7 +54,7 @@ function AllMovieListings({actions, allMovieDataPerPage}) {
           .catch((error) => {
             console.log("Error", error.response)
           })
-	};
+	  };
 
 	const handlePageChange = (event, selectedObject) => {
         setCurrentPage(selectedObject);

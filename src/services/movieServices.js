@@ -17,9 +17,9 @@ export async function getAllMovieData(page) {
   return response.data;
 }
 
-export async function searchMoviesByKeyword(keyword) {
+export async function searchMoviesByKeyword(keyword, page) {
   // call to server to register user
-  const response = await api.get(`search/movie?api_key=${apiKey}&en-US&query=${keyword}&page=1&include_adult=false&page=${1}`)
+  const response = await api.get(`search/movie?api_key=${apiKey}&en-US&query=${keyword}&page=1&include_adult=false&page=${page}`)
   return response.data;
 }
 
