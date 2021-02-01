@@ -13,6 +13,7 @@ import {
 import { makeStyles } from "@material-ui/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import SearchIcon from '@material-ui/icons/Search';
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -32,6 +33,10 @@ const headersData = [
   {
     label: "Contact Us",
     href: "/#",
+  },
+  {
+    label: <SearchIcon/>,
+    href: "/",
   },
 ];
 
@@ -53,6 +58,10 @@ const useStyles = makeStyles(() => ({
     fontWeight: 400,
     size: "25px",
     marginLeft: "38px",
+     "&:hover": {
+       color: "#b2497b",
+       backgroundColor: "#fcfcfc",
+     },
   },
   menuDraws: {
     fontFamily: "Quicksand, sans-serif",

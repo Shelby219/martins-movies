@@ -19,7 +19,7 @@ function UnderNavHeader({location}) {
                         </ListNav>
 
             );
-            break;
+
         case "searchedMovies":
             return (
                            <ListNav>
@@ -27,7 +27,7 @@ function UnderNavHeader({location}) {
                             </ListNav>
 
                 );
-            break;
+   
         default:
               return (
                          <ListNav>

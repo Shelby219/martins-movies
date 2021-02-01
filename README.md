@@ -41,12 +41,13 @@ https://developers.themoviedb.org/3/getting-started/introduction
 ### User Stories
 
 * As a user:
-    * I can go to the home page and search for movies by:
+    * I can go to the home page and search for movies (titles) by:
         * Keyword
         * language (English or Other)
         * year
-    * I will be taken to the search page after typing a valid parameter and clicking search.
-    I will be taken to a no results page after typing an invalid parameter and clicking search.
+    * I will be taken to the search page after typing a valid parameter and clicking search and will view all matching movies sorted via popularity.
+    * I will be taken to a no results page after typing an invalid parameter and clicking search.
+    * I can go to a 'All Movies" page and view all the movies sorted by popularity.
     * I can mark a movie as watched.
     * I can unmark a movie as watched.
     * I will be able to click a "Read More" button on a movie listing on the results page and be taken to IMBD if ID present.
@@ -88,21 +89,17 @@ https://developers.themoviedb.org/3/getting-started/introduction
 ### Tech Stack
 
 **Design and Planning**
-* **Figma** - Wireframing.
-
 * **Lucid Chart**- Diagramming.
 
 **Tech**
 * **React 17.0.1** - An open-source, front end, JavaScript library for building user interfaces or UI components.
 * **React-dom 17.0.1** - This package serves as the entry point to the DOM and server renderers for React.
 * **React-router-dom 5.2.0** - React Router is a collection of navigational components that compose declaratively with your application, DOM bindings for React Router.
-* **React-scripts 4.0.1** - includes scripts and configuration used by Create React App used to initiate the project.
+* **React-scripts 4.0.1** - Includes scripts and configuration used by Create React App used to initiate the project.
 * **React-redux 7.2.2** - Is the official React binding for Redux. It lets your React components read data from a Redux store, and dispatch actions to the store to update data.
 * **@reduxjs/toolkit** - Is the official, opinionated, batteries-included toolset for efficient Redux development, intended to be the standard way to write Redux logic. It includes utility functions and several Redux add ons.
-* **Redux-thunk 2.3.0** - This middleware allows you to write action creators that return a function instead of an action. The inner function receives the store methods dispatch and getState as parameters.
-* **Dotenv 8.2.0** -  This loads environment variables from a .env file into process.env.
-* **Lodash 4.17.20** - A Javascript utility library. Which includes a utility called throttle. Wrapping the redux save to store callback in a throttle ensures that the inner function that is passed in is not going to be called more often than the number of milliseconds that is specified.
-* **React-styled-components** -
+* **Dotenv 8.2.0** -  is a module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based on the Twelve-Factor App methodology.
+* **React-styled-components** - is a library for React and React Native that allows you to use component-level styles in your application that are written with a mixture of JavaScript and CSS using a technique called CSS-in-JS.
 * **Material UI** - Is the most popular React framework, it enables using React components faster development or building a custom design.
 * **HTML5**  - A markup language used for structuring and presenting content.
 * **CSS3** - A style sheet language used for describing the presentation of a document
@@ -117,9 +114,11 @@ https://developers.themoviedb.org/3/getting-started/introduction
 -----
 ### Functionality/Features
 
+###### Current
 * Home page
-* Search for movies via keyword, language and year.
+* Search for movie titles via keyword, language and year.
 * View movie data via results page.
+* View all movie data via all movies page.
 * Movie listing:
     * Title
     * Overview
@@ -129,14 +128,17 @@ https://developers.themoviedb.org/3/getting-started/introduction
 * Mark movie as watched.
 * Unmark movie as watched.
 * "Read More" button linking to IMDB if ID present.
-* If no IMDB id present no link.
+
+###### Upcoming
+* Search for movies by movie year and language available.
 
 -----
 
 ### Data Flow Diagram
 
-<div style="width:70%; margin: 0 auto;"><img src="./docs/dfd.png"/></div>
+###### A diagram showing the flow flow of the data stored in Local state via Redux.
 
+<div style="width:70%; margin: 0 auto;"><img src="./docs/dfd.png"/></div>
 
 -----
 
@@ -145,8 +147,15 @@ https://developers.themoviedb.org/3/getting-started/introduction
 * Documentation
 * File Architecture Set up
 * Redux Set up
+* Page base code
 * Component Base Code
-* Cypress or Enzyme Tests ?
+* Functionality of components using test data
+* Tested API endpoints via postman to determine if suitable
+* Axios and services to input real data
+* Connecting of redux for saved state
+* Manual Testing
+* Styling
+* Automated testing using Cypress.... TBA
 
 -----
 
@@ -182,7 +191,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
     * Created the framework styling and layout for home page with search bar and movie listings page with movie cards.
 
     * **Blockers**:
-        * Determining if Material UI Grid was suitable or CSS flexbox.
+        * Determining if Material UI Grid was better or pur CSS via flexbox.
 
 
 <br>
@@ -193,7 +202,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
     * Local storage for saving watched movies implemented.
     * Local storage for movie searched implemented.
     * Update search bar- by searching with 3 inputs, keywords, language and year, with validation on all 3.
-    * Restructure search bar to be seperate components and added on change and handle submit for search.
+    * Restructure search bar to be separate components and added on change and handle submit for search.
     * Added autocomplete components for language options, using JSON file from the API, not sure if implementing yet.
     * **Blockers**:
         * Determining how to store "watched or unwatched for each movie" whilst using API calls to get the movies via search, being able to store a watched reference. This was overcome by using Redux storage to store a array of MOVIES_WATCHED just storing the movies ID and a watched boolean. Then when displaying the movies returned from the Axios call, using a function to check if the movie is watched in storage before displaying.
@@ -201,20 +210,25 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 * **1st February 2021**
     * Query parameters for the search results page input.
-    * All movies page completed, with pagination for all movie listings up to 500 per the API.
+    * Initial Deployment 
+    * All movies page completed, with pagination for all movie listings up to 500 per the API - the data for this page was held with 'useState' over redux, possibly more efficient?
     * Added pagination to the search page.
     * Marking as watched process begun, can mark as watched and add to redux.
     * Marked as unwatched in state set up.
-    * Successful for the search results page keeping "watched" state for checked boxes.
-     * IMDB API endpoint set up, when the user clicks on Readmore it will make an API request to get the IMDB ID to send the user to IMDB.
+    * Successful for the search results page keeping "watched" state for checked boxes. This was done by adding a new object property to the movie data displayed on the page, using the ID in the 'MOVIES WATCHED' stored array and if present adding the 'watched' property to the array of objects.
+    * IMDB API endpoint set up, when the user clicks on Readmore it will make an API request to get the IMDB ID to send the user to IMDB.
     * **Blockers**:
         * Pagination for all listings page was set up smoothly, just issues with setting the current page loading time a bit slow, so clicking over pages loads old data, then refreshing loads correct page.... This was resolved by changing how the main axios call was made, correct in a useEffect, with the useEffect being called every time the page number changes.
-        * Determining how to go about the search bar for keyword, year OR language. 3 inputs? Checkboxes which determine the input? On search bar that has validation behind the scenes determining?
-        * Issues with the content from search being overridden by Local storage, therefor leaving the page empty. This happened in process of marking as watched.
+        * Determining how to go about the search bar for keyword, year OR language. 3 inputs? Checkboxes which determine the input? On search bar that has validation behind the scenes determining? Using data for a autocomplete dropbox for languages?
+        * Issues with the content from search being overridden by Local storage, therefore leaving the page empty. This happened in process of marking as watched. This was resolved.
         * Stuck on comparing two arrays of objects, one being the movie data, the other being the watched movie array. Checking if the ID is in watched to enable to checkbox to stay ticked.
         * Extra Validation needed for marking watched in redux.
 
 * **2nd February 2021**
+   * Tidied up readme
+   * Hover effect on nav bar
+   * Added a search icon to the nav bar for added UX
+   * Final deployment
 
 -----
 
