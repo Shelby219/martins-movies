@@ -42,29 +42,30 @@ function MovieListings({listOfMovies, actions, listOfWatchedMovies}) {
     const [currentPage, setCurrentPage] = useState(1);
     const [watched, setWatched] = useState(false)
 
-    async function checkWatched (){
-        if (listOfWatchedMovies.length === 0 || listOfWatchedMovies === undefined){
+    // async function checkWatched (){
+    //     if (listOfWatchedMovies.length === 0 || listOfWatchedMovies === undefined){
 
-        } else {
+    //     } else {
 
-        let arrayWithWatched  = await movieDisplay.map((item, i) => {
-            Object.assign({}, item, listOfWatchedMovies[i])
-        });
-            console.log("ched", arrayWithWatched)
+    //     let arrayWithWatched  = await movieDisplay.map((item, i) => {
+    //         Object.assign({}, item, listOfWatchedMovies[i])
+    //     });
+    //         console.log("ched", arrayWithWatched)
 
-            //setMovieDisplay(arrayWithWatched)
-        }
-    }
+    //         //setMovieDisplay(arrayWithWatched)
+    //     }
+    // }
 
-     useEffect(() => {
-        checkWatched()
-    }, []);
+    //  useEffect(() => {
+    //     checkWatched()
+    // }, []);
 
     //Function which calls the Movie API keyword search if current page changes
     const handleAxiosData = async () => {
         setisLoaded(false)
         await searchMoviesByKeyword(query.get("search"), currentPage)
             .then((res) => {
+                setMovieDisplay(res.results)
                 actions.getMoviesDisplay(res.results)
                 setPageCount(res.total_pages)
                 setisLoaded(true)
