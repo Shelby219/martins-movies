@@ -206,6 +206,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
     * Marking as watched process begun, can mark as watched and add to redux.
     * Marked as unwatched in state set up.
     * Successful for the search results page keeping "watched" state for checked boxes.
+     * IMDB API endpoint set up, when the user clicks on Readmore it will make an API request to get the IMDB ID to send the user to IMDB.
     * **Blockers**:
         * Pagination for all listings page was set up smoothly, just issues with setting the current page loading time a bit slow, so clicking over pages loads old data, then refreshing loads correct page.... This was resolved by changing how the main axios call was made, correct in a useEffect, with the useEffect being called every time the page number changes.
         * Determining how to go about the search bar for keyword, year OR language. 3 inputs? Checkboxes which determine the input? On search bar that has validation behind the scenes determining?
@@ -214,7 +215,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
         * Extra Validation needed for marking watched in redux.
 
 * **2nd February 2021**
-    * IMDB API endpoint set up, when the user clicks on Readmore it will make an API request to get the IMDB ID to send the user to IMDB.
+
 -----
 
 ### Getting Started with Create React App

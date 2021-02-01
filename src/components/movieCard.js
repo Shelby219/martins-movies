@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 //Styles
 import {MovieCardStyle, ReadMoreButton, Watched} from '../components/styles.js';
 
-
+import {getMovieIMDBID} from '../services/movieServices.js';
 
 import genresArray from "../data/genres.json";
 
@@ -50,6 +50,17 @@ function MovieCard({movie, actions, listOfWatchedMovies}) {
       }
     }
 
+  async function getIMDBIDHandler (){
+      await getMovieIMDBID(id)
+       .then(async(res) => {
+         console.log(res.imdb_id)
+         window.open(`https://www.imdb.com/title/${res.imdb_id}/`);
+        })
+        .catch((error) => {
+            console.log("Error", error)
+        })
+    }
+
   return (
       <MovieCardStyle key={id}>
         <Link to={"/#"} style={{ textDecoration: 'none' }} >
@@ -69,9 +80,9 @@ function MovieCard({movie, actions, listOfWatchedMovies}) {
      </Link>
 
      <div class="buttonGroup" >
-         <a href={"/#"} style={{ textDecoration: 'none' }} >
-              <ReadMoreButton>Read More</ReadMoreButton>
-          </a>
+
+              <ReadMoreButton onClick={getIMDBIDHandler}>Read More</ReadMoreButton>
+
             <Watched>
             <input
                   name={id}
