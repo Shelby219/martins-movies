@@ -67,7 +67,7 @@ function AllMovieListings({listOfWatchedMovies}) {
             if (error.response && error.response.status === 401){
             setErrors(error.response.data.status_message)
             } else {
-             setErrors(error.response.data.status_message)}
+            setErrors(error.response.data.status_message)}
           })
 	  };
 
@@ -85,7 +85,6 @@ function AllMovieListings({listOfWatchedMovies}) {
            {errors && <div style={{ textAlign: 'center', margin: '10px' }} >{errors}</div>}
             {isLoaded ? (
                <>
-
                 <div className={classes.pagination}>
                      <Pagination
                         className={classes.paginationItem}
@@ -102,6 +101,16 @@ function AllMovieListings({listOfWatchedMovies}) {
                             )
                             }
                  </MovieContainer>
+                 <div className={classes.pagination}>
+                     <Pagination
+                        className={classes.paginationItem}
+                        count={pageCount}
+                        page={currentPage}
+                        onChange={handlePageChange}
+                        boundaryCount={1}
+
+                    />
+                </div>
                 </>
                 ) : (
 				<div><Loading/></div>

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { connect } from "react-redux";
-import {useLocation, useHistory} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 
 import {MovieContainer, BaseContainer} from '../components/styles.js';
 
@@ -30,7 +30,6 @@ import {searchMoviesByKeyword} from '../services/movieServices.js';
 
 function MovieListings({listOfMovies, actions, listOfWatchedMovies}) {
     //const [movieDisplay, setMovieDisplay] = useState(listOfMovies)
-     let history = useHistory();
      const classes = useStyles();
      function useQuery() {
       return new URLSearchParams(useLocation().search);
@@ -96,16 +95,7 @@ function MovieListings({listOfMovies, actions, listOfWatchedMovies}) {
              {isLoaded ? (
                <>
 
-                <div className={classes.pagination}>
-                     <Pagination
-                        className={classes.paginationItem}
-                        count={pageCount}
-                        page={currentPage}
-                        onChange={handlePageChange}
-                        boundaryCount={1}
 
-                    />
-                </div>
                         <MovieContainer>
                             {listOfMovies === undefined || listOfMovies.length !== 0  ? (
                             <>
@@ -119,6 +109,16 @@ function MovieListings({listOfMovies, actions, listOfWatchedMovies}) {
                         <div style={{textAlign: "center", margin: "100px"}}>No Results Returned</div>
                         )}
                         </MovieContainer>
+                        <div className={classes.pagination}>
+                     <Pagination
+                        className={classes.paginationItem}
+                        count={pageCount}
+                        page={currentPage}
+                        onChange={handlePageChange}
+                        boundaryCount={1}
+
+                    />
+                </div>
                 </>
                 ) : (
 				<div><Loading/></div>
