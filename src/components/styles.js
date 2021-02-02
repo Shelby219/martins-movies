@@ -56,10 +56,10 @@ export const MovieCardStyle = styled.div `
     padding: 0px 20px 0px 25px;
     height: 45px;
     color: #3e4555;
-    font-size: 1.5em;
+    font-size: 1.3em;
 
         @media only screen and (min-width: 600px) {
-      font-size: 1.8em;
+      font-size: 1.5em;
         }
     }
     div{
