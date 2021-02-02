@@ -45,7 +45,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
         * Keyword
         * language (English or Other)
         * year
-    * I will be taken to the search page after typing a valid parameter and clicking search and will view all matching movies sorted via popularity.
+    * I will be taken to the search page after typing a valid parameter and clicking search and will view all matching movies.
     * I will be taken to a no results page after typing an invalid parameter and clicking search.
     * I can go to a 'All Movies" page and view all the movies sorted by popularity.
     * I can mark a movie as watched.
