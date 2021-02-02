@@ -218,6 +218,8 @@ https://developers.themoviedb.org/3/getting-started/introduction
         * Determining how to store "watched or unwatched for each movie" whilst using API calls to get the movies via search, being able to store a watched reference. This was overcome by using Redux storage to store a array of MOVIES_WATCHED just storing the movies ID and a watched boolean. Then when displaying the movies returned from the Axios call, using a function to check if the movie is watched in storage before displaying.
         * Environment Variable Issues. Created a customer APIKEY enviroment variable for development, had some issues due to the 'create-react-app' configuration which requires all .env variables to start with "REACT_APP_".
 
+<br>
+
 * **1st February 2021**
     * Query parameters for the search results page input.
     * Initial Deployment
@@ -233,6 +235,8 @@ https://developers.themoviedb.org/3/getting-started/introduction
         * Issues with the content from search being overridden by Local storage, therefore leaving the page empty. This happened in process of marking as watched. This was resolved.
         * Stuck on comparing two arrays of objects, one being the movie data, the other being the watched movie array. Checking if the ID is in watched to enable to checkbox to stay ticked.
         * Extra Validation needed for marking watched in redux.
+
+<br>
 
 * **2nd February 2021**
    * Tidied up readme
