@@ -6,7 +6,7 @@ function Loading() {
 
   return (
         <BaseContainer>
-            Loading...
+           <div style={{ textAlign: "center", margin: "100px", fontSize: "1.4em"}}>Loading.....</div>
         </BaseContainer>
   );
 }

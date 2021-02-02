@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import {MovieContainer, BaseContainer} from '../components/styles.js';
 import MovieCard  from '../components/movieCard.js';
 import UnderNavHeader  from '../components/underNavheader.js';
-
+import Loading  from '../components/loading.js';
 
 //Material UI
 import { makeStyles } from "@material-ui/styles";
@@ -101,7 +101,7 @@ function AllMovieListings({listOfWatchedMovies}) {
                  </MovieContainer>
                 </>
                 ) : (
-				<div></div>
+				<div><Loading/></div>
 			    )}
             </BaseContainer>
   );
