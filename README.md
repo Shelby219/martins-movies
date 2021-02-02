@@ -246,7 +246,8 @@ https://developers.themoviedb.org/3/getting-started/introduction
    * Hover effect on nav bar
    * Added a search icon to the nav bar for added UX
    * Final deployment
-
+    * **Blockers**:
+        * window.open does not work on mobile so for readmore IMDB link- adjust this for mobile. 
 -----
 
 ### Getting Started with Create React App
