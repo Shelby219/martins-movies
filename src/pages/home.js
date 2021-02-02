@@ -49,6 +49,11 @@ function Home({actions,listOfMovies, listOfWatchedMovies}) {
         })
           .catch((error) => {
             console.log("Error", error)
+            console.log("Error", error.response)
+            if (error.response && error.response.status === 401){
+            alert(error.response.data.status_message)
+            } else {
+            alert(error.response.data.status_message)}
         })
     }
 

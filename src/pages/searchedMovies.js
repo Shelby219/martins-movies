@@ -68,7 +68,11 @@ function MovieListings({listOfMovies, actions, listOfWatchedMovies}) {
                     })
                 .catch((error) => {
                     console.log("Error", error.response)
-                    setErrors(error)
+                    console.log("Error", error.response)
+                        if (error.response && error.response.status === 401){
+                        setErrors(error.response.data.status_message)
+                        } else {
+                        setErrors(error.response.data.status_message)}
                 })
     };
 
@@ -88,9 +92,10 @@ function MovieListings({listOfMovies, actions, listOfWatchedMovies}) {
     return (
             <BaseContainer>
              <UnderNavHeader location="searchedMovies"/>
+              {errors && <div style={{ textAlign: 'center', margin: '10px' }} >{errors}</div>}
              {isLoaded ? (
                <>
-                 {errors && <div style={{ textAlign: 'center', margin: '10px' }} >{errors}</div>}
+
                 <div className={classes.pagination}>
                      <Pagination
                         className={classes.paginationItem}
