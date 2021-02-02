@@ -3,6 +3,9 @@
 ##### By:
 #### Shelby El-rassi | [GitHub](https://github.com/Shelby219) |
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f03a4191-5b3c-4ca3-98dc-37bc6c6758a2/deploy-status)](https://app.netlify.com/sites/martins-movies/deploys) 
+##### Deployed App: https://martins-movies.netlify.app/
+
 ---
 
 <div style="width:70%; margin: 0 auto;"><img src="./docs/movies.jpg"/></div>
