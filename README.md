@@ -110,6 +110,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 * **Netlify**  - Is a serverless platform enabling intuitive git-based workflows and automated deployments. Heroku was my first choice for deployment, but due to time I chose Netlify as I had had used all my Heroku Apps available on the payment tier I was on.
 * **GitHub** - Is a provider of Internet hosting for software development and version control using Git and it was my Version Control Host.
 * **Images** - KLB theme images.
+* **The Movie DB** - The Movie Database API for all the movie data and search queries. 
 
 -----
 
