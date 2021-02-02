@@ -134,7 +134,6 @@ function Nav() {
       };
 
 
-
       const displayMobile = () => {
         const handleDrawerOpen = () =>
           setState((prevState) => ({ ...prevState, drawerOpen: true }));
@@ -143,8 +142,6 @@ function Nav() {
 
         return (
           <Toolbar className={mobiletoolbar} >
-
-
             <Drawer
               {...{
                 anchor: "right",
@@ -175,7 +172,6 @@ function Nav() {
         );
       };
 
-
       const getDrawerChoices = () => {
         return headersData.map(({ label, href }) => {
           return (
@@ -191,7 +187,7 @@ function Nav() {
             >
               <MenuItem
               className={menuDraws} >{label} <ArrowForwardIosIcon  style={{marginLeft: "auto" }} /> </MenuItem>
-            </Link>
+             </Link>
           );
         });
       };
@@ -230,7 +226,6 @@ function Nav() {
     </header>
   );
 }
-
 
 
 
